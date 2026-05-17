@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Masuk - TOEFL PNC</title>
+    <title>Daftar - TOEFL PNC</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{asset('css/web.css')}}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-
 <body>
     <div class="auth-wrapper">
         <div class="auth-image d-none d-lg-block"></div>
         <div class="auth-form-container">
             <div class="auth-form-content">
-                <h1 class="auth-title">Masuk</h1>
-                <p class="auth-subtitle">Selamat datang kembali di TOEFL PNC.
-                    <br> Silakan masuk ke akun Anda untuk mendaftar tes TOEFL.</br>
-                </p>
+                <h1 class="auth-title">Daftar</h1>
+                <p class="auth-subtitle">Daftarkan akun Anda untuk mengikuti <br>
+                    tes TOEFL dan melihat hasil tes secara online.</p>
 
                 <form action="#" method="POST">
+                    <div class="mb-4">
+                        <label for="nama" class="form-label">Nama</label>
+                        <input type="text" id="nama" name="nama" class="form-control-custom" placeholder="Aika Eva Darlene" required>
+                    </div>
                     <div class="mb-4">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" id="email" name="email" class="form-control-custom" placeholder="aikaeva_darlene.stu@pnc.ac.id" required>
@@ -33,19 +34,22 @@
                             <i class="fas fa-eye-slash password-toggle" id="togglePassword"></i>
                         </div>
                     </div>
-                    <div class="text-end mb-4">
-                        <a href="#" class="text-primary text-decoration-none fw-blod small">Lupa Password?</a>
-
-                        <button type="submit" class="btn-auth">Masuk</button>
-
-                        <div class="text-center mt-4">
-                            <p class="small text-muted">Belum memiliki Akun?
-                                <a href="{{route('register')}}" class="text-primary text-decoration-none fw-bold">Daftar</a>
-                            </p>
+                    <div class="mb-4">
+                        <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
+                        <div class="password-wrapper">
+                            <input type="password" id="password_confirmation" name="password_confirmation" class="form-control-custom" placeholder="hai1234!" required>
+                            <i class="fas fa-eye-slash password-toggle" id="toggleConfirmPassword"></i>
                         </div>
                     </div>
+                    
+                        <button type="submit" class="btn-auth">Daftar</button>
+
+                        <div class="text-center mt-4">
+                            <p class="small text-muted">Sudah memiliki Akun?
+                                <a href="{{route('login')}}" class="text-primary text-decoration-none fw-bold">Masuk</a>
+                            </p>
+                        </div>
                 </form>
-            </div>
         </div>
     </div>
     </div>
@@ -60,7 +64,16 @@
             this.classList.toggle('fa-eye');
             this.classList.toggle('fa-eye-slash');
         });
+
+        const toggleConfirmPassword = document.querySelector('#toggleConfirmPassword');
+        const confirmpassword = document.querySelector('#password_confirmation');
+
+        toggleConfirmPassword.addEventListener('click', function(e) {
+            const type = confirmpassword.getAttribute('type') === 'password' ? 'text' : 'password';
+            confirmpassword.setAttribute('type', type);
+            this.classList.toggle('fa-eye');
+            this.classList.toggle('fa-eye-slash');
+        });
     </script>
 </body>
-
 </html>
