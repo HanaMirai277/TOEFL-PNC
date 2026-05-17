@@ -69,7 +69,7 @@
                                 <div class="jadwal-item">
                                     <span class="label"><img src="{{ asset('icons/time.png') }}" width="18">
                                         Waktu</span>
-                                    <span class="text-description">: (Sesi Pagi) 09:00 - 11:00 WIB</span>
+                                    <span class="text-description">: 09:00 - 11:00 WIB</span>
                                 </div>
                                 <div class="jadwal-item">
                                     <span class="label"><img src="{{ asset('icons/location.png') }}" width="18">
@@ -102,7 +102,7 @@
                                 <div class="jadwal-item">
                                     <span class="label"><img src="{{ asset('icons/time.png') }}" width="18">
                                         Waktu</span>
-                                    <span class="text-description">: (Sesi Pagi) 09:00 - 11:00 WIB</span>
+                                    <span class="text-description">: 09:00 - 11:00 WIB</span>
                                 </div>
                                 <div class="jadwal-item">
                                     <span class="label"><img src="{{ asset('icons/location.png') }}" width="18">
