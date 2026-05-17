@@ -18,26 +18,41 @@
                 <p class="auth-subtitle">Daftarkan akun Anda untuk mengikuti <br>
                     tes TOEFL dan melihat hasil tes secara online.</p>
 
-                <form action="#" method="POST">
+                @if ($errors->any())
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <i class="fas fa-exclamation-circle me-2"></i>
+                        <strong>Terjadi kesalahan!</strong>
+                        <ul class="mb-0 mt-2">
+                            @foreach ($errors->all() as $error)
+                                <li>{{$error}}</li>
+                            @endforeach
+                        </ul>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+
+                <form action="{{route('register.store')}}" method="POST">
+                @csrf
+
                     <div class="mb-4">
-                        <label for="nama" class="form-label">Nama</label>
-                        <input type="text" id="nama" name="nama" class="form-control-custom" placeholder="Aika Eva Darlene" required>
+                        <label for="name" class="form-label">Nama</label>
+                        <input type="text" id="name" name="name" class="form-control-custom" placeholder="Aika Eva Darlene" value="{{old('name')}}">
                     </div>
                     <div class="mb-4">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" id="email" name="email" class="form-control-custom" placeholder="aikaeva_darlene.stu@pnc.ac.id" required>
+                        <input type="email" id="email" name="email" class="form-control-custom" placeholder="aikaeva_darlene.stu@pnc.ac.id" value="{{old('email')}}">
                     </div>
                     <div class="mb-4">
                         <label for="password" class="form-label">Password</label>
                         <div class="password-wrapper">
-                            <input type="password" id="password" name="password" class="form-control-custom" placeholder="hai1234!" required>
+                            <input type="password" id="password" name="password" class="form-control-custom" placeholder="hai1234!">
                             <i class="fas fa-eye-slash password-toggle" id="togglePassword"></i>
                         </div>
                     </div>
                     <div class="mb-4">
                         <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
                         <div class="password-wrapper">
-                            <input type="password" id="password_confirmation" name="password_confirmation" class="form-control-custom" placeholder="hai1234!" required>
+                            <input type="password" id="password_confirmation" name="password_confirmation" class="form-control-custom" placeholder="hai1234!">
                             <i class="fas fa-eye-slash password-toggle" id="toggleConfirmPassword"></i>
                         </div>
                     </div>
@@ -54,11 +69,12 @@
     </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         const togglePassword = document.querySelector('#togglePassword');
         const password = document.querySelector('#password');
 
-        togglePassword.addEventListener('click', function(e) {
+        togglePassword.addEventListener('click', function (e) {
             const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
             password.setAttribute('type', type);
             this.classList.toggle('fa-eye');
@@ -68,7 +84,7 @@
         const toggleConfirmPassword = document.querySelector('#toggleConfirmPassword');
         const confirmpassword = document.querySelector('#password_confirmation');
 
-        toggleConfirmPassword.addEventListener('click', function(e) {
+        toggleConfirmPassword.addEventListener('click', function (e) {
             const type = confirmpassword.getAttribute('type') === 'password' ? 'text' : 'password';
             confirmpassword.setAttribute('type', type);
             this.classList.toggle('fa-eye');
