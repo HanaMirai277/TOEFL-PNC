@@ -19,6 +19,10 @@ Route::middleware('guest')->group(function () {
 
 Route::post('/logout', [LoginController::class, 'destroy'])->name('logout')->middleware('auth');
 
+Route::get('/tentang', function () {
+    return view('contents.web.tentang');
+})->name('tentang');
+
 //Protected Routes (Dashboard)
 Route::middleware('auth')->group(function () {
     Route::get('/beranda', function () {
