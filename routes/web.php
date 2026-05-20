@@ -23,6 +23,10 @@ Route::get('/tentang', function () {
     return view('contents.web.tentang');
 })->name('tentang');
 
+Route::get('/jadwal', function () {
+    return view('contents.web.jadwal');
+})->name('jadwal');
+
 //Protected Routes (Dashboard)
 Route::middleware('auth')->group(function () {
     Route::get('/beranda', function () {

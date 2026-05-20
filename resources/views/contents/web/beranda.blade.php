@@ -8,7 +8,7 @@
                 <div class="col-lg-10">
                     <h1>Sistem Pendaftaran TOEFL<br>Politeknik Negeri Cilacap</h1>
                     <p>Layanan resmi pengukuran kemampuan bahasa Inggris mahasiswa.</p>
-                    <a href="#" class="btn-lihat-jadwal">
+                    <a href="{{route('jadwal')}}" class="btn-lihat-jadwal">
                         Lihat Jadwal <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
@@ -38,7 +38,7 @@
                         <h3>TOEFL PREDICTION</h3>
                         <p>TOEFL EPT-P merupakan tes prediksi yang dirancang untuk mengukur kemampuan bahasa Inggris
                             mahasiswa sebagai persiapan menghadapi tes TOEFL resmi.</p>
-                        <a href="#">Lihat Selengkapnya</a>
+                        <a href="">Lihat Selengkapnya</a>
                     </div>
                 </div>
             </div>
@@ -121,7 +121,7 @@
                 </div>
             </div>
             <div class="text-center mt-4">
-                <a href="#" class="lihat-semua-link">Lihat Semua</a>
+                <a href="{{route('jadwal')}}" class="lihat-semua-link">Lihat Semua</a>
             </div>
         </div>
     </section>
