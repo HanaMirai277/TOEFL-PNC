@@ -35,6 +35,10 @@ Route::get('/profil', function () {
     return view('contents.mahasiswa.profil.index');
 })->name('profil');
 
+Route::get('/profil/edit', function () {
+    return view('contents.mahasiswa.profil.edit');
+})->name('profil.edit');
+
 //Protected Routes (Dashboard)
 Route::middleware('auth')->group(function () {
     Route::get('/beranda', function () {
