@@ -27,6 +27,10 @@ Route::get('/jadwal', function () {
     return view('contents.web.jadwal');
 })->name('jadwal');
 
+Route::get('/hasiltes', function () {
+    return view('contents.web.hasiltes');
+})->name('hasiltes');
+
 //Protected Routes (Dashboard)
 Route::middleware('auth')->group(function () {
     Route::get('/beranda', function () {
