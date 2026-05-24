@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="{{asset('css/web.css')}}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    {{--favicon--}}
+    <link rel="icon" type="image/x-icon" href="{{asset('images/logo_pnc_2.png')}}">
     @stack('styles')
 </head>
 <body>
