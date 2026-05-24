@@ -31,6 +31,10 @@ Route::get('/hasiltes', function () {
     return view('contents.web.hasiltes');
 })->name('hasiltes');
 
+Route::get('/profil', function () {
+    return view('contents.mahasiswa.profil.index');
+})->name('profil');
+
 //Protected Routes (Dashboard)
 Route::middleware('auth')->group(function () {
     Route::get('/beranda', function () {
