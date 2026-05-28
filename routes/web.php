@@ -33,23 +33,32 @@ Route::get('/hasiltes', function () {
 
 Route::get('/profil', function () {
     return view('contents.mahasiswa.profil.index');
+    return view('contents.pendaftar.profil.index');
 })->name('profil');
 
 Route::get('/profil/edit', function () {
     return view('contents.mahasiswa.profil.edit');
+    return view('contents.pendaftar.profil.edit');
 })->name('profil.edit');
 
 Route::get('/transaksi/riwayat', function () {
     return view('contents.mahasiswa.transaksi.riwayat');
+    return view('contents.pendaftar.transaksi.riwayat');
 })->name('transaksi.riwayat');
 
 Route::get('/transaksi/detail', function () {
     return view('contents.mahasiswa.transaksi.detail');
+    return view('contents.pendaftar.transaksi.detail');
 })->name('transaksi.detail');
 
 Route::get('/transaksi/kartu-tes', function () {
-    return view('contents.mahasiswa.kartu_tes.show');
+    return view('contents.mahasiswa.kartu-tes.show');
+    return view('contents.pendaftar.kartu-tes.show');
 })->name('transaksi.kartu-tes');
+
+Route::get('/pendaftaran/step1', function () {
+    return view('contents.pendaftar.pendaftaran.step1-data-diri');
+})->name('pendaftaran.step1');
 
 //Protected Routes (Dashboard)
 Route::middleware('auth')->group(function () {

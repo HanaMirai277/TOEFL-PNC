@@ -29,7 +29,7 @@
                         <h3>TOEFL ITP</h3>
                         <p>TOEFL ITP merupakan tes kemampuan bahasa Inggris yang diselenggarakan secara institusional untuk
                             memenuhi persyaratan kelulusan di Politeknik Negeri Cilacap.</p>
-                        <a href="#">Lihat Selengkapnya</a>
+                        <a href="{{route('tentang')}}">Lihat Selengkapnya</a>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -38,7 +38,7 @@
                         <h3>TOEFL PREDICTION</h3>
                         <p>TOEFL EPT-P merupakan tes prediksi yang dirancang untuk mengukur kemampuan bahasa Inggris
                             mahasiswa sebagai persiapan menghadapi tes TOEFL resmi.</p>
-                        <a href="">Lihat Selengkapnya</a>
+                        <a href="{{route('tentang')}}">Lihat Selengkapnya</a>
                     </div>
                 </div>
             </div>
@@ -82,7 +82,7 @@
                                     <span class="text-description">: 24 Peserta</span>
                                 </div>
                             </div>
-                            <a href="#" class="btn btn-daftar">Daftar Sekarang</a>
+                            <a href="{{route('pendaftaran.step1')}}" class="btn btn-daftar">Daftar Sekarang</a>
                         </div>
                     </div>
                 </div>
@@ -115,7 +115,7 @@
                                     <span class="text-description">: 32 Peserta</span>
                                 </div>
                             </div>
-                            <a href="#" class="btn btn-daftar">Daftar Sekarang</a>
+                            <a href="{{route('pendaftaran.step1')}}" class="btn btn-daftar">Daftar Sekarang</a>
                         </div>
                     </div>
                 </div>

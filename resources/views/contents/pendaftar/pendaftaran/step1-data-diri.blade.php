@@ -1,0 +1,362 @@
+@extends('layouts.web.main')
+
+@section('content')
+<section class="pendaftaran-section py-5" style="background-color: #F8F4FF; min-height: 80hv;">
+    <div class="container">
+        <!-- Progress Bar -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-8">
+                <div class="d-flex justify-content-between position-relative registration-steps">
+                    <div class="step-line"></div>
+                    <div class="step-item active">
+                        <div class="reg-step-icon-wrapper">
+                            <img src="{{asset('icons/datadiri.png')}}" alt="Isi Data Diri" class="reg-step-icon active-icon">
+                        </div>
+                        <div class="step-label">Isi Data Diri</div>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="reg-step-icon-wrapper">
+                            <img src="{{asset('icons/pesanan.png')}}" alt="Konfirmasi Pesanan" class="reg-step-icon">
+                        </div>
+                        <div class="step-label">Konfirmasi Pesanan</div>
+                    </div>
+
+                    <div class="step-item">
+                        <div class="reg-step-icon-wrapper">
+                            <img src="{{asset('icons/walet.png')}}" alt="KPembayaran" class="reg-step-icon">
+                        </div>
+                        <div class="step-label">Pembayaran</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Card -->
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-sm p-4" style="border-radius: 24px;">
+                    <div class="card-body p-2">
+                        <h5 class="fw-bold text-purple mb-4">Data Diri Pendaftaran</h5>
+                        <form action="{{route('pendaftaran.step1')}}" method="post">
+                            @csrf
+                            <!-- Nama Lengkap -->
+                            <div class="mb-4">
+                                <label class="form-label fw-medium">Nama Lengkap <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control form-control-custom" name="nama" require>
+                            </div>
+
+                            <!-- Jenis Kelamin -->
+                            <div class="mb-4">
+                                <label class="form-label fw-medium d-block">Jenis Kelamin <span class="text-danger">*</span></label>
+                                <div class="form-check form-check-inline me-4">
+                                    <input type="radio" name="jenis_kelamin" id="laki-laki" class="form-check-input custom-radio" require>
+                                    <label for="laki-laki">Laki-laki</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" name="jenis_kelamin" id="perempuan" class="form-check-input custom-radio" require>
+                                    <label for="perempuan">Perempuan</label>
+                                </div>
+                            </div>
+
+                            <!-- Status -->
+                            <div class="mb-4">
+                                <label class="form-label fw-medium">Status <span class="text-danger">*</span></label>
+                                <div class="select-wrapper position-relative">
+                                    <select name="status" id="statusSelect" class="form-select form-control-custom" require>
+                                        <option value="" disabled selected>Pilih Status</option>
+                                        <option value="mahasiswa">Mahasiswa</option>
+                                        <option value="alumni">Alumni</option>
+                                        <option value="umum">Umum</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Conditional Fields: Mahasiswa -->
+                            <div id="mahasiswaFields" class="status-fields" style="display: none;">
+                                <div class="mb-4">
+                                    <label class="form-label fw-medium">NIM <span class="text-danger">*</span></label>
+                                    <input type="text" name="nim_mhs" class="form-control form-control-custom">
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="form-label fw-medium">Program Studi <span class="text-danger">*</span></label>
+                                    <select name="status" id="statusSelect" class="form-select form-control-custom" require>
+                                        <option value="" disabled selected>Pilih Program Studi</option>
+                                        <option value="teknik_mesin">D3 Teknik Mesin</option>
+                                        <option value="teknik_listrik">D3 Teknik Listrik</option>
+                                        <option value="teknik_elektronika">D3 Teknik Elektronika</option>
+                                        <option value="teknik_informatika">D3 Teknik Informatika</option>
+                                        <option value="teknik_pengendalian_pencemaran_lingkungan">D4 Teknik Pengendalian Pencemaran Lingkungan</option>
+                                        <option value="akutansi_lembaga_keuangan_syariah">D4 Akutansi Lembaga Keuangan Syariah</option>
+                                        <option value="rekayasa_keamanan_siber">D4 Rekayasa Keamanan Siber</option>
+                                        <option value="pengembangan_produk_agroindustri">D4 Pengembangan Produk Agroindustri</option>
+                                        <option value="teknologi_rekayasa_multimedia">D4 Teknologi Rekayasa Multimedia</option>
+                                        <option value="teknologi_rekayasa_perangkat_lunak">D4 Teknologi Rekayasa Perangkat Lunak</option>
+                                        <option value="teknologi_rekayasa_energi_terbarukan">D4 Teknologi Rekayasa Energi Terbarukan</option>
+                                        <option value="teknologi_rekayasa_kimia_industri">D4 Teknologi Rekayasa Kimia Industri</option>
+                                        <option value="teknologi_rekayasa_mekatronika">D4 Teknologi Rekayasa Mekatronika</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Conditional Fields: Alumni -->
+                            <div id="alumniFields" class="status-fields" style="display: none;">
+                                <div class="mb-4">
+                                    <label class="form-label fw-medium">NIM <span class="text-danger">*</span></label>
+                                    <input type="text" name="nim_alumni" class="form-control form-control-custom">
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="form-label fw-medium">Program Studi <span class="text-danger">*</span></label>
+                                    <select name="status" id="statusSelect" class="form-select form-control-custom" require>
+                                        <option value="" disabled selected>Pilih Program Studi</option>
+                                        <option value="teknik_mesin">D3 Teknik Mesin</option>
+                                        <option value="teknik_listrik">D3 Teknik Listrik</option>
+                                        <option value="teknik_elektronika">D3 Teknik Elektronika</option>
+                                        <option value="teknik_informatika">D3 Teknik Informatika</option>
+                                        <option value="teknik_pengendalian_pencemaran_lingkungan">D4 Teknik Pengendalian Pencemaran Lingkungan</option>
+                                        <option value="akutansi_lembaga_keuangan_syariah">D4 Akutansi Lembaga Keuangan Syariah</option>
+                                        <option value="rekayasa_keamanan_siber">D4 Rekayasa Keamanan Siber</option>
+                                        <option value="pengembangan_produk_agroindustri">D4 Pengembangan Produk Agroindustri</option>
+                                        <option value="teknologi_rekayasa_multimedia">D4 Teknologi Rekayasa Multimedia</option>
+                                        <option value="teknologi_rekayasa_perangkat_lunak">D4 Teknologi Rekayasa Perangkat Lunak</option>
+                                        <option value="teknologi_rekayasa_energi_terbarukan">D4 Teknologi Rekayasa Energi Terbarukan</option>
+                                        <option value="teknologi_rekayasa_kimia_industri">D4 Teknologi Rekayasa Kimia Industri</option>
+                                        <option value="teknologi_rekayasa_mekatronika">D4 Teknologi Rekayasa Mekatronika</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-4">
+                                    <label class="form-label fw-medium">Tahun Lulus <span class="text-danger">*</span></label>
+                                    <select name="tahun_lulus" class="form-select form-select-custom">
+                                        <option value="" disabled selected>Pilih Tahun Lulus</option>
+                                        @for ($i = date('Y'); $i>= 2010; $i--)
+                                        <option value="{{$i}}">{{$i}}</option>
+                                        @endfor
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Conditional Fields: Umum -->
+                            <div id="umumFields" class="status-fields" style="display: none;">
+                                <div class="mb-4">
+                                    <label class="form-label fw-medium">Nomor KTP <span class="text-danger">*</span></label>
+                                    <input type="text" name="no_ktp" class="form-control form-control-custom">
+                                </div>
+                            </div>
+
+                            <!-- Common Fields -->
+                            <div class="mb-4">
+                                <label class="form-label fw-medium">Nomor WhatsApp <span class="text-danger">*</span></label>
+                                <input type="text" name="no_wa" class="form-control form-control-custom" require>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label fw-medium">Email <span class="text-danger">*</span></label>
+                                <input type="email" name="email" class="form-control form-control-custom" require>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label fw-medium">Keperluan Tes <span class="text-danger">*</span></label>
+                                <select name="keperluantes" class="form-select form-control-custom" require>
+                                    <option value="" disabled selected>Pilih Keperluan Tes</option>
+                                    <option value="syarat_kelulusan">Syarat Kelulusan</option>
+                                    <option value="pendaftaran_kerja">Pendaftaran Kerja</option>
+                                    <option value="pendaftaran_studi_lanjutn">Pendaftaran Studi Lanjut</option>
+                                    <option value="persyaratan_beasiswa">Persyaratan Beasiswa</option>
+                                    <option value="lainnya">Lainnya</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-4">
+                                <div class="form-check custom-checkbox-wrapper">
+                                    <input type="checkbox" id="agree" class="form-check-input custom-checkbox" require>
+                                    <label for="agree" class="form-check-label ms-2">
+                                        Saya menyetujui <a href="#" class="text-purple fw-bold text-decoration-none">Syarat & Ketentuan</a>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="mt-5">
+                                <button type="submit" class="btn btn-auth w-100 py-3" style="border-radius: 50px; font-sixe: 1.1rem;">Lanjut ke Pembeyaran</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@push('styles')
+<style>
+    .registration-steps {
+        z-index: 1;
+    }
+
+    .step-line {
+        position: absolute;
+        top: 25px;
+        left: 50px;
+        right: 50px;
+        height: 2px;
+        background-color: #e0e0e0;
+        z-index: -1;
+    }
+
+    .step-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #f8f4ff;
+        padding: 0 10px;
+    }
+
+    .reg-step-icon-wrapper {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #e0e0e0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .step-item.active .reg-step-icon-wrapper {
+        background-color: var(--color-primary);
+    }
+
+    .reg-step-icon {
+        width: 22px;
+        height: 22px;
+        object-fit: contain;
+        filter: grayscale(100%) opacity(0.5);
+    }
+
+    .step-item.active .reg-step-icon {
+        filter: brightness(0) invert(1);
+    }
+
+    .step-label {
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: #999;
+    }
+
+    .step-item.active .step-label {
+        color: var(--color-primary);
+        font-weight: 700;
+    }
+
+    .form-control-custom {
+        background-color: #ffffff !important;
+        border: 1.5px solid #d1d1d1 !important;
+    }
+
+    .form-control-custom:focus {
+        border-color: var(--color-primary) !important;
+        box-shadow: 0 0 0 0.25rem rgba(93, 22, 166, 0.1) !important;
+    }
+
+    .text-purple {
+        color: var(--color-primary);
+    }
+
+    /* Custom Radio Styling */
+    .custom-radio {
+        width: 20px;
+        height: 20px;
+        border: 2px solid var(--color-primary) !important;
+        margin-top: 0.2rem;
+        cursor: pointer;
+    }
+
+    .custom-radio:checked {
+        background-color: var(--color-primary) !important;
+        border-color: var(--color-primary) !important;
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%23fff'/%3e%3c/svg%3e") !important;
+    }
+
+    /* Custom Checkbox Styling */
+    .custom-checkbox {
+        width: 20px;
+        height: 20px;
+        border: 2px solid var(--color-primary) !important;
+        border-radius: 6px !important;
+        cursor: pointer;
+    }
+
+    .custom-checkbox:checked {
+        background-color: var(--color-primary) !important;
+        border-color: var(--color-primary) !important;
+    }
+
+    /* Select Arrow Customization */
+    .form-select.form-control-custom {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23370075' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+        background-size: 12px;
+    }
+</style>
+@endpush
+
+@push('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const statusSelect = document.getElementById('statusSelect');
+        const mahasiswaFields = document.getElementById('mahasiswaFields');
+        const alumniFields = document.getElementById('alumniFields');
+        const umumFields = document.getElementById('umumFields');
+
+        function toggleFields() {
+            const status = statusSelect.value;
+
+            // Hide all first
+            mahasiswaFields.style.display = 'none';
+            alumniFields.style.display = 'none';
+            umumFields.style.display = 'none';
+
+            // Reset required attributes
+            resetRequired(mahasiswaFields);
+            resetRequired(alumniFields);
+            resetRequired(umumFields);
+
+            if (status === 'mahasiswa') {
+                mahasiswaFields.style.display = 'block';
+                setRequired(mahasiswaFields);
+            } else if (status === 'alumni') {
+                alumniFields.style.display = 'block';
+                setRequired(alumniFields);
+            } else if (status === 'umum') {
+                umumFields.style.display = 'block';
+                setRequired(umumFields);
+            }
+        }
+
+        function setRequired(container) {
+            const inputs = container.querySelectorAll('input, select');
+            inputs.forEach(input => {
+                input.setAttribute('required', 'required');
+            });
+        }
+
+        function resetRequired(container) {
+            const inputs = container.querySelectorAll('input, select');
+            inputs.forEach(input => {
+                input.removeAttribute('required');
+            });
+        }
+
+        statusSelect.addEventListener('change', toggleFields);
+
+        // Trigger once on load if there's a value (e.g. old input)
+        if (statusSelect.value) {
+            toggleFields();
+        }
+    });
+</script>
+@endpush
+
+@endsection
