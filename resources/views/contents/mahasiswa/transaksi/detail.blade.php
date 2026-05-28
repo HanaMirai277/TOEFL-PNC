@@ -11,17 +11,17 @@
             <div class="detail-card-body">
                 <div class="detail-item">
                     <div class="detail-label">Nomor Pendaftaran</div>
-                    <div class="detail-colom">:</div>
+                    <div class="detail-colon">:</div>
                     <div class="detail-value">TOEFL-101-260226-013</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-label">Tanggal Daftar</div>
-                    <div class="detail-colom">:</div>
+                    <div class="detail-colon">:</div>
                     <div class="detail-value">26 Februari 2026</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-label">Status Bayar</div>
-                    <div class="detail-colom">:</div>
+                    <div class="detail-colon">:</div>
                     <div class="detail-value">LUNAS</div>
                 </div>
             </div>
@@ -35,27 +35,27 @@
             <div class="detail-card-body">
                 <div class="detail-item">
                     <div class="detail-label">Nomor Tes</div>
-                    <div class="detail-colom">:</div>
+                    <div class="detail-colon">:</div>
                     <div class="detail-value">Sepecial Ramadhan Batch 1 - EPT-P</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-label">Jenis Tes</div>
-                    <div class="detail-colom">:</div>
+                    <div class="detail-colon">:</div>
                     <div class="detail-value">TOEFL EPT-P</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-label">Tanggal Tes</div>
-                    <div class="detail-colom">:</div>
+                    <div class="detail-colon">:</div>
                     <div class="detail-value">9 Maret 2026</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-label">Waktu</div>
-                    <div class="detail-colom">:</div>
+                    <div class="detail-colon">:</div>
                     <div class="detail-value">09:00 - 11:00 WIB</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-label">Lokasi</div>
-                    <div class="detail-colom">:</div>
+                    <div class="detail-colon">:</div>
                     <div class="detail-value">Lab. Bahasa GKB Lantai 2</div>
                 </div>
             </div>
@@ -69,42 +69,42 @@
             <div class="detail-card-body">
                 <div class="detail-item">
                     <div class="detail-label">Nama Peserta</div>
-                    <div class="detail-colom">:</div>
+                    <div class="detail-colon">:</div>
                     <div class="detail-value">Aika Eva Darlene</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-label">Jenis Kelamin</div>
-                    <div class="detail-colom">:</div>
+                    <div class="detail-colon">:</div>
                     <div class="detail-value">Perempuan</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-label">Status</div>
-                    <div class="detail-colom">:</div>
+                    <div class="detail-colon">:</div>
                     <div class="detail-value">Mahasiswa</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-label">NIM</div>
-                    <div class="detail-colom">:</div>
+                    <div class="detail-colon">:</div>
                     <div class="detail-value">250132102</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-label">Program Studi</div>
-                    <div class="detail-colom">:</div>
+                    <div class="detail-colon">:</div>
                     <div class="detail-value">D3 Teknik Informatika</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-label">Nomor WhatsApp</div>
-                    <div class="detail-colom">:</div>
+                    <div class="detail-colon">:</div>
                     <div class="detail-value">081234567890</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-label">Email</div>
-                    <div class="detail-colom">:</div>
+                    <div class="detail-colon">:</div>
                     <div class="detail-value">aikaeva_darlene.stu@pnc.ac.id</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-label">Keperluan Tes</div>
-                    <div class="detail-colom">:</div>
+                    <div class="detail-colon">:</div>
                     <div class="detail-value">Syarat Kelulusan</div>
                 </div>
             </div>
@@ -118,19 +118,19 @@
             <div class="detail-card-body">
                 <div class="detail-item">
                     <div class="detail-label">Total Biaya</div>
-                    <div class="detail-colom">:</div>
+                    <div class="detail-colon">:</div>
                     <div class="detail-value">Rp 100.000</div>
                 </div>
                 <div class="detail-item">
                     <div class="detail-label">Metode Pembayaran</div>
-                    <div class="detail-colom">:</div>
+                    <div class="detail-colon">:</div>
                     <div class="detail-value">QRIS</div>
                 </div>
             </div>
         </div>
 
         <div class="d-flex justify-content-end mb-5">
-            <a href="#" class="btn-kartu-tes">Lihat Kartu Tes</a>
+            <a href="{{route('transaksi.kartu-tes')}}" class="btn-kartu-tes">Lihat Kartu Tes</a>
         </div>
     </div>
 </section>
@@ -184,7 +184,7 @@
             color: var(--color-black);
         }
 
-        .detail-colom {
+        .detail-colon {
             width: 30px;
             color: var(--color-black);
         }
@@ -219,7 +219,7 @@
                 width: 100%;
                 margin-bottom: 5px;
             }
-            .detail-colom {
+            .detail-colon {
                 display: none;
             }
         }
