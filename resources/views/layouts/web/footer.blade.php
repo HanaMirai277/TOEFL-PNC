@@ -34,7 +34,7 @@
                 </div>
                 <div class="contact-item">
                     <img src="{{asset('icons/waktu.png')}}" alt="Waktu">
-                    <span>Senin - Jum’at, 08:00 - 16: 00 WIB</span>
+                    <span>Senin - Jum’at, 08:00 - 16:00 WIB</span>
                 </div>
             </div>
         </div>

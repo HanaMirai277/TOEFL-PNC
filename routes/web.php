@@ -43,6 +43,10 @@ Route::get('/transaksi/riwayat', function () {
     return view('contents.mahasiswa.transaksi.riwayat');
 })->name('transaksi.riwayat');
 
+Route::get('/transaksi/detail', function () {
+    return view('contents.mahasiswa.transaksi.detail');
+})->name('transaksi.detail');
+
 //Protected Routes (Dashboard)
 Route::middleware('auth')->group(function () {
     Route::get('/beranda', function () {
