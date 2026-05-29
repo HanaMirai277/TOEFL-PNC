@@ -38,7 +38,7 @@
                 <div class="card border-0 shadow-sm p-4" style="border-radius: 24px;">
                     <div class="card-body p-2">
                         <h5 class="fw-bold text-purple mb-4">Data Diri Pendaftaran</h5>
-                        <form action="{{route('pendaftaran.step1')}}" method="post">
+                        <form action="{{route('pendaftaran.step2')}}" method="get">
                             @csrf
                             <!-- Nama Lengkap -->
                             <div class="mb-4">
@@ -65,9 +65,9 @@
                                 <div class="select-wrapper position-relative">
                                     <select name="status" id="statusSelect" class="form-select form-control-custom" require>
                                         <option value="" disabled selected>Pilih Status</option>
-                                        <option value="mahasiswa">Mahasiswa</option>
-                                        <option value="alumni">Alumni</option>
-                                        <option value="umum">Umum</option>
+                                        <option value="Mahasiswa">Mahasiswa</option>
+                                        <option value="Alumni">Alumni</option>
+                                        <option value="Umum">Umum</option>
                                     </select>
                                 </div>
                             </div>
@@ -83,19 +83,19 @@
                                     <label class="form-label fw-medium">Program Studi <span class="text-danger">*</span></label>
                                     <select name="status" id="statusSelect" class="form-select form-control-custom" require>
                                         <option value="" disabled selected>Pilih Program Studi</option>
-                                        <option value="teknik_mesin">D3 Teknik Mesin</option>
-                                        <option value="teknik_listrik">D3 Teknik Listrik</option>
-                                        <option value="teknik_elektronika">D3 Teknik Elektronika</option>
-                                        <option value="teknik_informatika">D3 Teknik Informatika</option>
-                                        <option value="teknik_pengendalian_pencemaran_lingkungan">D4 Teknik Pengendalian Pencemaran Lingkungan</option>
-                                        <option value="akutansi_lembaga_keuangan_syariah">D4 Akutansi Lembaga Keuangan Syariah</option>
-                                        <option value="rekayasa_keamanan_siber">D4 Rekayasa Keamanan Siber</option>
-                                        <option value="pengembangan_produk_agroindustri">D4 Pengembangan Produk Agroindustri</option>
-                                        <option value="teknologi_rekayasa_multimedia">D4 Teknologi Rekayasa Multimedia</option>
-                                        <option value="teknologi_rekayasa_perangkat_lunak">D4 Teknologi Rekayasa Perangkat Lunak</option>
-                                        <option value="teknologi_rekayasa_energi_terbarukan">D4 Teknologi Rekayasa Energi Terbarukan</option>
-                                        <option value="teknologi_rekayasa_kimia_industri">D4 Teknologi Rekayasa Kimia Industri</option>
-                                        <option value="teknologi_rekayasa_mekatronika">D4 Teknologi Rekayasa Mekatronika</option>
+                                        <option value="D3 Teknik Mesin">D3 Teknik Mesin</option>
+                                        <option value="D3 Teknik Listrik">D3 Teknik Listrik</option>
+                                        <option value="D3 Teknik Elektronika">D3 Teknik Elektronika</option>
+                                        <option value="D3 Teknik Informatika">D3 Teknik Informatika</option>
+                                        <option value="D4 Teknik Pengendalian Pencemaran Lingkungan">D4 Teknik Pengendalian Pencemaran Lingkungan</option>
+                                        <option value="D4 Akutansi Lembaga Keuangan Syariah">D4 Akutansi Lembaga Keuangan Syariah</option>
+                                        <option value="D4 Rekayasa Keamanan Siber">D4 Rekayasa Keamanan Siber</option>
+                                        <option value="D4 Pengembangan Produk Agroindustri">D4 Pengembangan Produk Agroindustri</option>
+                                        <option value="D4 Teknologi Rekayasa Multimedia">D4 Teknologi Rekayasa Multimedia</option>
+                                        <option value="D4 Teknologi Rekayasa Perangkat Lunak">D4 Teknologi Rekayasa Perangkat Lunak</option>
+                                        <option value="D4 Teknologi Rekayasa Energi Terbarukan">D4 Teknologi Rekayasa Energi Terbarukan</option>
+                                        <option value="D4 Teknologi Rekayasa Kimia Industri">D4 Teknologi Rekayasa Kimia Industri</option>
+                                        <option value="D4 Teknologi Rekayasa Mekatronika">D4 Teknologi Rekayasa Mekatronika</option>
                                     </select>
                                 </div>
                             </div>
@@ -111,19 +111,19 @@
                                     <label class="form-label fw-medium">Program Studi <span class="text-danger">*</span></label>
                                     <select name="status" id="statusSelect" class="form-select form-control-custom" require>
                                         <option value="" disabled selected>Pilih Program Studi</option>
-                                        <option value="teknik_mesin">D3 Teknik Mesin</option>
-                                        <option value="teknik_listrik">D3 Teknik Listrik</option>
-                                        <option value="teknik_elektronika">D3 Teknik Elektronika</option>
-                                        <option value="teknik_informatika">D3 Teknik Informatika</option>
-                                        <option value="teknik_pengendalian_pencemaran_lingkungan">D4 Teknik Pengendalian Pencemaran Lingkungan</option>
-                                        <option value="akutansi_lembaga_keuangan_syariah">D4 Akutansi Lembaga Keuangan Syariah</option>
-                                        <option value="rekayasa_keamanan_siber">D4 Rekayasa Keamanan Siber</option>
-                                        <option value="pengembangan_produk_agroindustri">D4 Pengembangan Produk Agroindustri</option>
-                                        <option value="teknologi_rekayasa_multimedia">D4 Teknologi Rekayasa Multimedia</option>
-                                        <option value="teknologi_rekayasa_perangkat_lunak">D4 Teknologi Rekayasa Perangkat Lunak</option>
-                                        <option value="teknologi_rekayasa_energi_terbarukan">D4 Teknologi Rekayasa Energi Terbarukan</option>
-                                        <option value="teknologi_rekayasa_kimia_industri">D4 Teknologi Rekayasa Kimia Industri</option>
-                                        <option value="teknologi_rekayasa_mekatronika">D4 Teknologi Rekayasa Mekatronika</option>
+                                        <option value="D3 Teknik Mesin">D3 Teknik Mesin</option>
+                                        <option value="D3 Teknik Listrik">D3 Teknik Listrik</option>
+                                        <option value="D3 Teknik Elektronika">D3 Teknik Elektronika</option>
+                                        <option value="D3 Teknik Informatika">D3 Teknik Informatika</option>
+                                        <option value="D4 Teknik Pengendalian Pencemaran Lingkungan">D4 Teknik Pengendalian Pencemaran Lingkungan</option>
+                                        <option value="D4 Akutansi Lembaga Keuangan Syariah">D4 Akutansi Lembaga Keuangan Syariah</option>
+                                        <option value="D4 Rekayasa Keamanan Siber">D4 Rekayasa Keamanan Siber</option>
+                                        <option value="D4 Pengembangan Produk Agroindustri">D4 Pengembangan Produk Agroindustri</option>
+                                        <option value="D4 Teknologi Rekayasa Multimedia">D4 Teknologi Rekayasa Multimedia</option>
+                                        <option value="D4 Teknologi Rekayasa Perangkat Lunak">D4 Teknologi Rekayasa Perangkat Lunak</option>
+                                        <option value="D4 Teknologi Rekayasa Energi Terbarukan">D4 Teknologi Rekayasa Energi Terbarukan</option>
+                                        <option value="D4 Teknologi Rekayasa Kimia Industri">D4 Teknologi Rekayasa Kimia Industri</option>
+                                        <option value="D4 Teknologi Rekayasa Mekatronika">D4 Teknologi Rekayasa Mekatronika</option>
                                     </select>
                                 </div>
 
@@ -161,11 +161,11 @@
                                 <label class="form-label fw-medium">Keperluan Tes <span class="text-danger">*</span></label>
                                 <select name="keperluantes" class="form-select form-control-custom" require>
                                     <option value="" disabled selected>Pilih Keperluan Tes</option>
-                                    <option value="syarat_kelulusan">Syarat Kelulusan</option>
-                                    <option value="pendaftaran_kerja">Pendaftaran Kerja</option>
-                                    <option value="pendaftaran_studi_lanjutn">Pendaftaran Studi Lanjut</option>
-                                    <option value="persyaratan_beasiswa">Persyaratan Beasiswa</option>
-                                    <option value="lainnya">Lainnya</option>
+                                    <option value="Syarat Kelulusan">Syarat Kelulusan</option>
+                                    <option value="Pendaftaran Kerja">Pendaftaran Kerja</option>
+                                    <option value="Pendaftaran Studi Lanjut">Pendaftaran Studi Lanjut</option>
+                                    <option value="Persyaratan Beasiswa">Persyaratan Beasiswa</option>
+                                    <option value="Lainnya">Lainnya</option>
                                 </select>
                             </div>
 
@@ -179,7 +179,7 @@
                             </div>
 
                             <div class="mt-5">
-                                <button type="submit" class="btn btn-auth w-100 py-3" style="border-radius: 50px; font-sixe: 1.1rem;">Lanjut ke Pembeyaran</button>
+                                <button type="submit" class="btn btn-auth w-100 py-3" style="border-radius: 50px; font-sixe: 1.1rem;">Lanjut ke Pembayaran</button>
                             </div>
                         </form>
                     </div>

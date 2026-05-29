@@ -60,6 +60,10 @@ Route::get('/pendaftaran/step1', function () {
     return view('contents.pendaftar.pendaftaran.step1-data-diri');
 })->name('pendaftaran.step1');
 
+Route::get('/pendaftaran/step2', function () {
+    return view('contents.pendaftar.pendaftaran.step2-konfirmasi');
+})->name('pendaftaran.step2');
+
 //Protected Routes (Dashboard)
 Route::middleware('auth')->group(function () {
     Route::get('/beranda', function () {
