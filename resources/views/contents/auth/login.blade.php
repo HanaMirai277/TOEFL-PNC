@@ -55,7 +55,7 @@
                     </div>
                     
                     <div class="text-end mb-4">
-                        <a href="#" class="text-primary text-decoration-none fw-blod small">Lupa Password?</a>
+                        <a href="#" class="text-primary text-decoration-none fw-bold small">Lupa Password?</a>
 
                         <button type="submit" class="btn-auth">Masuk</button>
 

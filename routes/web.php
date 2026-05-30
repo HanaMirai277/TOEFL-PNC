@@ -74,3 +74,10 @@ Route::middleware('auth')->group(function () {
         return view('contents.web.beranda');
     })->name('beranda');
 });
+
+// Admin Routes
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('contents.admin.dashboard');
+    })->name('dashboard');
+});
