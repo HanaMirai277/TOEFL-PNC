@@ -65,9 +65,9 @@
                                 <div class="select-wrapper position-relative">
                                     <select name="status" id="statusSelect" class="form-select form-control-custom" require>
                                         <option value="" disabled selected>Pilih Status</option>
-                                        <option value="Mahasiswa">Mahasiswa</option>
-                                        <option value="Alumni">Alumni</option>
-                                        <option value="Umum">Umum</option>
+                                        <option value="mahasiswa">Mahasiswa</option>
+                                        <option value="alumni">Alumni</option>
+                                        <option value="umum">Umum</option>
                                     </select>
                                 </div>
                             </div>

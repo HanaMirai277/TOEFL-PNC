@@ -99,7 +99,7 @@
                                     <div class="col-8 fw-medium">: {{request('status', 'Mahasiswa')}}</div>
                                 </div>
 
-                                @if (request('status') == 'Mahasiswa' || !request('status'))
+                                @if (request('status') == 'mahasiswa' || !request('status'))
                                 <div class="row mb-3">
                                     <div class="col-4 text-muted">NIM</div>
                                     <div class="col-8 fw-medium" style="font-weight: 400;">: 250132102</div>
@@ -110,7 +110,7 @@
                                 </div>
                                 @endif
 
-                                @if (request('status') == 'Alumni' || !request('status'))
+                                @if (request('status') == 'alumni' || !request('status'))
                                 <div class="row mb-3">
                                     <div class="col-4 text-muted">NIM</div>
                                     <div class="col-8 fw-medium" style="font-weight: 400;">: 250132102</div>
@@ -125,7 +125,7 @@
                                 </div>
                                 @endif
 
-                                @if (request('status') == 'Umum' || !request('status'))
+                                @if (request('status') == 'umum' || !request('status'))
                                 <div class="row mb-3">
                                     <div class="col-4 text-muted">Nomor KTP</div>
                                     <div class="col-8 fw-medium" style="font-weight: 400;">: 3501784612069999</div>

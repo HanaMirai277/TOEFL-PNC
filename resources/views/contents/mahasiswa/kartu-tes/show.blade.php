@@ -34,8 +34,10 @@
                                 <div class="info-item">
                                     <div class="info-label">STATUS</div>
                                     <div class="info-colon">:</div>
-                                    <div class="info-value">Mahasiswa</div>
+                                    <div class="info-value text-capitalize">{{request('status', 'Mahasiswa')}}</div>
                                 </div>
+
+                                @if (request('status') == 'mahasiswa' || request('status') == 'alumni' || !request('status'))
                                 <div class="info-item">
                                     <div class="info-label">NIM</div>
                                     <div class="info-colon">:</div>
@@ -46,6 +48,15 @@
                                     <div class="info-colon">:</div>
                                     <div class="info-value">D3 Teknik Informatika</div>
                                 </div>
+                                @endif
+
+                                @if (request('status') == 'umum')
+                                <div class="info-item">
+                                    <div class="info-label">NOMOR KTP</div>
+                                    <div class="info-colon">:</div>
+                                    <div class="info-value">3501784612069999</div>
+                                </div>
+                                @endif
                             </div>
                         </div>
 
@@ -163,7 +174,7 @@
 
     .info-label {
         width: 200px;
-        font-weight: 700;
+        font-weight: 500;
         color: var(--color-black);
     }
 
