@@ -88,61 +88,61 @@
                             <div class="card-body p-4" style="font-size: 0.8rem;">
                                 <div class="row mb-3">
                                     <div class="col-4 text-muted">Nama Lengkap</div>
-                                    <div class="col-8 fw-medium" style="font-weight: 400;">: Aika Eva Darlene</div>
+                                    <div class="col-8 fw-medium" style="font-weight: 400;">: {{request('nama')}}</div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-4 text-muted">Jenis Kelamin</div>
-                                    <div class="col-8 fw-medium" style="font-weight: 400;">: Perempuan</div>
+                                    <div class="col-8 fw-medium" style="font-weight: 400;">: {{request('jenis_kelamin')}}</div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-4 text-muted">Status</div>
-                                    <div class="col-8 fw-medium">: {{request('status', 'Mahasiswa')}}</div>
+                                    <div class="col-8 fw-medium">: {{ucfirst(request('status'))}}</div>
                                 </div>
 
                                 @if (request('status') == 'mahasiswa' || !request('status'))
                                 <div class="row mb-3">
                                     <div class="col-4 text-muted">NIM</div>
-                                    <div class="col-8 fw-medium" style="font-weight: 400;">: 250132102</div>
+                                    <div class="col-8 fw-medium" style="font-weight: 400;">: {{request('nim_mhs')}}</div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-4 text-muted">Program Studi</div>
-                                    <div class="col-8 fw-medium" style="font-weight: 400;">: D3 Teknik Informatika</div>
+                                    <div class="col-8 fw-medium" style="font-weight: 400;">: {{request('prodi_mhs')}}</div>
                                 </div>
                                 @endif
 
                                 @if (request('status') == 'alumni' || !request('status'))
                                 <div class="row mb-3">
                                     <div class="col-4 text-muted">NIM</div>
-                                    <div class="col-8 fw-medium" style="font-weight: 400;">: 250132102</div>
+                                    <div class="col-8 fw-medium" style="font-weight: 400;">: {{request('nim_alumni')}}</div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-4 text-muted">Program Studi</div>
-                                    <div class="col-8 fw-medium" style="font-weight: 400;">: D3 Teknik Informatika</div>
+                                    <div class="col-8 fw-medium" style="font-weight: 400;">: {{request('prodi_alumni')}}</div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-4 text-muted">Tahun Lulus</div>
-                                    <div class="col-8 fw-medium" style="font-weight: 400;">: 2024</div>
+                                    <div class="col-8 fw-medium" style="font-weight: 400;">: {{request('tahun_lulus')}}</div>
                                 </div>
                                 @endif
 
                                 @if (request('status') == 'umum' || !request('status'))
                                 <div class="row mb-3">
                                     <div class="col-4 text-muted">Nomor KTP</div>
-                                    <div class="col-8 fw-medium" style="font-weight: 400;">: 3501784612069999</div>
+                                    <div class="col-8 fw-medium" style="font-weight: 400;">: {{request('no_ktp')}}</div>
                                 </div>
                                 @endif
 
                                 <div class="row mb-3">
                                     <div class="col-4 text-muted">Nomor WhatsApp</div>
-                                    <div class="col-8 fw-medium" style="font-weight: 400;">: 081234567890</div>
+                                    <div class="col-8 fw-medium" style="font-weight: 400;">: {{request('no_wa')}}</div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-4 text-muted">Email</div>
-                                    <div class="col-8 fw-medium" style="font-weight: 400;">: aikaeva_darlene.stu@pnc.ac.id</div>
+                                    <div class="col-8 fw-medium" style="font-weight: 400;">: {{request('email')}}</div>
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-4 text-muted">Keperluan Tes</div>
-                                    <div class="col-8 fw-medium" style="font-weight: 400;">: Syarat Kelulusan</div>
+                                    <div class="col-8 fw-medium" style="font-weight: 400;">: {{request('keperluantes')}}</div>
                                 </div>
                             </div>
                         </div>
@@ -199,7 +199,7 @@
                                 <a href="{{route('pendaftaran.step1')}}" class="btn btn-outline-purple w-100 py-2" style="border-radius: 50px; font-weight: 700;">Ubah Data</a>
                             </div>
                             <div class="col-7">
-                                <a href="{{route('pendaftaran.step3')}}" class="btn btn-auth w-100 py-2 m-0" style="border-radius: 50px; font-weight: 700;">Lanjut ke Pembayaran</a>
+                                <a href="{{route('pendaftaran.step3', request()->query())}}" class="btn btn-auth w-100 py-2 m-0" style="border-radius: 50px; font-weight: 700;">Lanjut ke Pembayaran</a>
                             </div>
                         </div>
                     </div>

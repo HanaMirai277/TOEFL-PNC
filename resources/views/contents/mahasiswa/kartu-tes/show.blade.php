@@ -29,24 +29,37 @@
                                 <div class="info-item">
                                     <div class="info-label">NAMA PESERTA</div>
                                     <div class="info-colon">:</div>
-                                    <div class="info-value">Aika Eva Darlene</div>
+                                    <div class="info-value">{{request('nama')}}</div>
                                 </div>
                                 <div class="info-item">
                                     <div class="info-label">STATUS</div>
                                     <div class="info-colon">:</div>
-                                    <div class="info-value text-capitalize">{{request('status', 'Mahasiswa')}}</div>
+                                    <div class="info-value text-capitalize">{{ucfirst(request('status'))}}</div> 
                                 </div>
 
-                                @if (request('status') == 'mahasiswa' || request('status') == 'alumni' || !request('status'))
+                                @if (request('status') == 'mahasiswa')
                                 <div class="info-item">
                                     <div class="info-label">NIM</div>
                                     <div class="info-colon">:</div>
-                                    <div class="info-value">250132102</div>
+                                    <div class="info-value">{{request('nim_mhs')}}</div>
                                 </div>
                                 <div class="info-item">
                                     <div class="info-label">PROGRAM STUDI</div>
                                     <div class="info-colon">:</div>
-                                    <div class="info-value">D3 Teknik Informatika</div>
+                                    <div class="info-value">{{request('prodi_mhs')}}</div>
+                                </div>
+                                @endif
+
+                                @if (request('status') == 'alumni')
+                                <div class="info-item">
+                                    <div class="info-label">NIM</div>
+                                    <div class="info-colon">:</div>
+                                    <div class="info-value">{{request('nim_alumni')}}</div>
+                                </div>
+                                <div class="info-item">
+                                    <div class="info-label">PROGRAM STUDI</div>
+                                    <div class="info-colon">:</div>
+                                    <div class="info-value">{{request('prodi_alumni')}}</div>
                                 </div>
                                 @endif
 
@@ -54,7 +67,7 @@
                                 <div class="info-item">
                                     <div class="info-label">NOMOR KTP</div>
                                     <div class="info-colon">:</div>
-                                    <div class="info-value">3501784612069999</div>
+                                    <div class="info-value">{{request('no_ktp')}}</div>
                                 </div>
                                 @endif
                             </div>

@@ -122,7 +122,7 @@
                     Silakan unduh kartu tes dan bawa saat<br>
                     hari pelaksanaan tes.
                 </p>
-                <a href="{{route('transaksi.kartu-tes')}}" class="btn btn-auth w-100 py-2" style="border-radius: 50px; font-weight: 700; font-size: 1rem;">Lihat Kartu Tes</a>
+                <a href="{{route('transaksi.kartu-tes', request()->query())}}" class="btn btn-auth w-100 py-2" style="border-radius: 50px; font-weight: 700; font-size: 1rem;">Lihat Kartu Tes</a>
             </div>
         </div>
     </div>

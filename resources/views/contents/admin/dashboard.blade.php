@@ -14,11 +14,11 @@
     <div class="col-md-4">
         <div class="card card-overview p-3">
             <div class="d-flex align-items-center mb-2">
-                <div class="rounded-circle bg-light me-3 d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; border: 2px solid #10B981">
-                    <i class="fas fa-wallet text-success"></i>
+                <div class="rounded-circle bg-light me-3 d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; border: 2px solid #337B5A;">
+                    <i class="fas fa-wallet" style="color: #337B5A"></i>
                 </div>
                 <div>
-                    <span class="card-title text-success">TOTAL PENDAPATAN</span>
+                    <span class="card-title" style="color: #337B5A">TOTAL PENDAPATAN</span>
                     <div class="card-value">Rp 1.200.000</div>
                 </div>
             </div>
@@ -29,11 +29,11 @@
     <div class="col-md-4">
         <div class="card card-overview p-3">
             <div class="d-flex align-items-center mb-2">
-                <div class="rounded-circle bg-light me-3 d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; border: 2px solid #F59E0B">
-                    <i class="fas fa-users text-warning"></i>
+                <div class="rounded-circle bg-light me-3 d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; border: 2px solid #FF981A">
+                    <i class="fas fa-users" style="color: #FF981A"></i>
                 </div>
                 <div>
-                    <span class="card-title text-warning">TOTAL PESERTA</span>
+                    <span class="card-title" style="color: #FF981A">TOTAL PESERTA</span>
                     <div class="card-value">12</div>
                 </div>
             </div>
@@ -45,11 +45,11 @@
     <div class="col-md-4">
         <div class="card card-overview p-3">
             <div class="d-flex align-items-center mb-2">
-                <div class="rounded-circle bg-light me-3 d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; border: 2px solid #6D28D9">
-                    <i class="fas fa-calendar-alt" style="color: #6D28D9"></i>
+                <div class="rounded-circle bg-light me-3 d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; border: 2px solid #5D16A6">
+                    <i class="fas fa-calendar-alt" style="color: #5D16A6"></i>
                 </div>
                 <div>
-                    <span class="card-title" style="color: #6D28D9">JADWAL AKTIF</span>
+                    <span class="card-title" style="color: #5D16A6">JADWAL AKTIF</span>
                     <div class="card-value">4</div>
                 </div>
             </div>

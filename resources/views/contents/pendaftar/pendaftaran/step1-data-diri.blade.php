@@ -43,18 +43,18 @@
                             <!-- Nama Lengkap -->
                             <div class="mb-4">
                                 <label class="form-label fw-medium">Nama Lengkap <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control form-control-custom" name="nama" require>
+                                <input type="text" class="form-control form-control-custom" name="nama" required>
                             </div>
 
                             <!-- Jenis Kelamin -->
                             <div class="mb-4">
                                 <label class="form-label fw-medium d-block">Jenis Kelamin <span class="text-danger">*</span></label>
                                 <div class="form-check form-check-inline me-4">
-                                    <input type="radio" name="jenis_kelamin" id="laki-laki" class="form-check-input custom-radio" require>
+                                    <input type="radio" name="jenis_kelamin" id="laki-laki" value="Laki-laki" class="form-check-input custom-radio" required>
                                     <label for="laki-laki">Laki-laki</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input type="radio" name="jenis_kelamin" id="perempuan" class="form-check-input custom-radio" require>
+                                    <input type="radio" name="jenis_kelamin" id="perempuan" value="Perempuan" class="form-check-input custom-radio" required>
                                     <label for="perempuan">Perempuan</label>
                                 </div>
                             </div>
@@ -63,7 +63,7 @@
                             <div class="mb-4">
                                 <label class="form-label fw-medium">Status <span class="text-danger">*</span></label>
                                 <div class="select-wrapper position-relative">
-                                    <select name="status" id="statusSelect" class="form-select form-control-custom" require>
+                                    <select name="status" id="statusSelect" class="form-select form-control-custom" required>
                                         <option value="" disabled selected>Pilih Status</option>
                                         <option value="mahasiswa">Mahasiswa</option>
                                         <option value="alumni">Alumni</option>
@@ -81,7 +81,7 @@
 
                                 <div class="mb-4">
                                     <label class="form-label fw-medium">Program Studi <span class="text-danger">*</span></label>
-                                    <select name="status" id="statusSelect" class="form-select form-control-custom" require>
+                                    <select name="prodi_mhs" class="form-select form-control-custom">
                                         <option value="" disabled selected>Pilih Program Studi</option>
                                         <option value="D3 Teknik Mesin">D3 Teknik Mesin</option>
                                         <option value="D3 Teknik Listrik">D3 Teknik Listrik</option>
@@ -109,7 +109,7 @@
 
                                 <div class="mb-4">
                                     <label class="form-label fw-medium">Program Studi <span class="text-danger">*</span></label>
-                                    <select name="status" id="statusSelect" class="form-select form-control-custom" require>
+                                    <select name="prodi_alumni" class="form-select form-control-custom">
                                         <option value="" disabled selected>Pilih Program Studi</option>
                                         <option value="D3 Teknik Mesin">D3 Teknik Mesin</option>
                                         <option value="D3 Teknik Listrik">D3 Teknik Listrik</option>
@@ -149,17 +149,17 @@
                             <!-- Common Fields -->
                             <div class="mb-4">
                                 <label class="form-label fw-medium">Nomor WhatsApp <span class="text-danger">*</span></label>
-                                <input type="text" name="no_wa" class="form-control form-control-custom" require>
+                                <input type="text" name="no_wa" class="form-control form-control-custom" required>
                             </div>
 
                             <div class="mb-4">
                                 <label class="form-label fw-medium">Email <span class="text-danger">*</span></label>
-                                <input type="email" name="email" class="form-control form-control-custom" require>
+                                <input type="email" name="email" class="form-control form-control-custom" required>
                             </div>
 
                             <div class="mb-4">
                                 <label class="form-label fw-medium">Keperluan Tes <span class="text-danger">*</span></label>
-                                <select name="keperluantes" class="form-select form-control-custom" require>
+                                <select name="keperluantes" class="form-select form-control-custom" required>
                                     <option value="" disabled selected>Pilih Keperluan Tes</option>
                                     <option value="Syarat Kelulusan">Syarat Kelulusan</option>
                                     <option value="Pendaftaran Kerja">Pendaftaran Kerja</option>
@@ -171,7 +171,7 @@
 
                             <div class="mb-4">
                                 <div class="form-check custom-checkbox-wrapper">
-                                    <input type="checkbox" id="agree" class="form-check-input custom-checkbox" require>
+                                    <input type="checkbox" id="agree" class="form-check-input custom-checkbox" required>
                                     <label for="agree" class="form-check-label ms-2">
                                         Saya menyetujui <a href="javascript:void(0)" class="text-purple fw-bold text-decoration-none" data-bs-toggle="modal" data-bs-target="#termsModal">Syarat & Ketentuan</a>
                                     </label>
