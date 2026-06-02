@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,11 +24,20 @@ class LoginController extends Controller {
             'password.required' => 'Password harus diisi.',
         ]);
 
-        if (Auth::attempt($validated)) {
+        $credentials = [
+            'email'     => $validated['email'],
+            'password'  => $validated['password'],
+        ];
+
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
+            /** @var User|null $user */
+            $user = Auth::user();
+
+            $redirectRoute = $user?->isAdmin() ? 'admin.dashboard' : 'beranda';
             return redirect()
-                ->intended(route('beranda'))
+                ->intended(route($redirectRoute))
                 ->with('success', 'Anda berhasil masuk ke sistem.');
         }
 
@@ -46,5 +56,17 @@ class LoginController extends Controller {
         return redirect()
             ->route('login')
             ->with('success', 'Anda berhasil keluar dari sistem.');
+    }
+
+    public function destroyAdmin(Request $request): RedirectResponse {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+        
+        return redirect()
+            ->route('login')
+            ->with('success', 'Anda berhasil keluar dari panel admin.');
     }
 }

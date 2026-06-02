@@ -23,7 +23,12 @@
                     <li><a href="#" class="dropdown-item">Profile</a></li>
                     <li><a href="#" class="dropdown-item">Settings</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a href="#" class="dropdown-item text-danger">Logout</a></li>
+                    <li>
+                        <form action="{{route('admin.logout')}}" method="post">
+                            @csrf
+                            <button type="submit" class="dropdown-item text-danger">Logout</button>
+                        </form>
+                    </li>
                 </ul>
             </div>
         </div>
