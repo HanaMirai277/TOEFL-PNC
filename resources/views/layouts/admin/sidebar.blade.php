@@ -8,7 +8,7 @@
             <a href="{{route('admin.dashboard')}}"><i class="fas fa-list"></i>Dashboard</a>
         </li>
         <li class="{{request()->is('admin/jadwal*') ? 'active' : ''}}">
-            <a href="#"><i class="fas fa-calendar-alt"></i>Jadwal Tes</a>
+            <a href="{{route('admin.jadwal-tes')}}"><i class="fas fa-calendar-alt"></i>Jadwal Tes</a>
         </li>
         <li class="{{request()->is('admin/peserta*') ? 'active' : ''}}">
             <a href="#"><i class="fas fa-user"></i>Peserta Tes</a>
