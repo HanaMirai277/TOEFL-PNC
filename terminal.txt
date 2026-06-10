@@ -1,0 +1,13 @@
+cara bikin database migration/model/controller
+---
+> php artisan make:migration nama_migrateion
+> php artisan make:model NamaModel
+> php artisan make:controller NamaController
+
+untuk migrate
+---
+> php artisan migrate
+
+untuk rollback / hapus migration terakhir
+---
+> php artisan migrate:rollback

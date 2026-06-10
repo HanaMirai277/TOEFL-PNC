@@ -96,8 +96,12 @@
                 @enderror
             </div>
 
-            <div class="d-grid mt-5">
-                <button type="submit" class="btn text-white py-2 fw-bold" style="background-color: #5D16A6; border-radius: 30px; font-size: 1.1rem;">
+            <div class="d-flex gap-2 mt-5">
+                <a href="{{route('admin.jadwal-tes')}}" class="btn btn-outline-secondary py-2 px-4" style="border-radius: 30px; font-size: 1rem;">
+                    Kembali ke Daftar Tes
+                </a>
+
+                <button type="submit" class="btn text-white py-2 fw-bold" style="background-color: #5D16A6; border-radius: 30px; font-size: 1rem;">
                     Simpan Jadwal
                 </button>
             </div>

@@ -33,27 +33,27 @@ Route::get('/hasiltes', function () {
 })->name('hasiltes');
 
 Route::get('/profil', function () {
-    return view('contents.mahasiswa.profil.index');
+    // return view('contents.mahasiswa.profil.index');
     return view('contents.pendaftar.profil.index');
 })->name('profil');
 
 Route::get('/profil/edit', function () {
-    return view('contents.mahasiswa.profil.edit');
+    // return view('contents.mahasiswa.profil.edit');
     return view('contents.pendaftar.profil.edit');
 })->name('profil.edit');
 
 Route::get('/transaksi/riwayat', function () {
-    return view('contents.mahasiswa.transaksi.riwayat');
+    // return view('contents.mahasiswa.transaksi.riwayat');
     return view('contents.pendaftar.transaksi.riwayat');
 })->name('transaksi.riwayat');
 
 Route::get('/transaksi/detail', function () {
-    return view('contents.mahasiswa.transaksi.detail');
+    // return view('contents.mahasiswa.transaksi.detail');
     return view('contents.pendaftar.transaksi.detail');
 })->name('transaksi.detail');
 
 Route::get('/transaksi/kartu-tes', function () {
-    return view('contents.mahasiswa.kartu-tes.show');
+    // return view('contents.mahasiswa.kartu-tes.show');
     return view('contents.pendaftar.kartu-tes.show');
 })->name('transaksi.kartu-tes');
 
@@ -88,12 +88,21 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
     Route::get('/jadwal-tes', [JadwalTesController::class, 'index'])
     ->name('jadwal-tes');
 
-    Route::get('/jadwal-tes/show', function () {
-        return view('contents.admin.jadwal-tes.show');
-    })->name('jadwal-tes.show');
-
     Route::get('/jadwal-tes/create', [JadwalTesController::class, 'create'])
     ->name('jadwal-tes.create');
-    Route::get('/jadwal-tes', [JadwalTesController::class, 'store'])
+
+    Route::post('/jadwal-tes', [JadwalTesController::class, 'store'])
     ->name('jadwal-tes.store');
+
+    Route::get('/jadwal-tes/{jadwalTes}/edit', [JadwalTesController::class, 'edit'])
+    ->name('jadwal-tes.edit');
+
+    Route::put('/jadwal-tes/{jadwalTes}', [JadwalTesController::class, 'update'])
+    ->name('jadwal-tes.update');
+
+    Route::delete('/jadwal-tes/{jadwalTes}', [JadwalTesController::class, 'destroy'])
+    ->name('jadwal-tes.destroy');
+
+    Route::get('/jadwal-tes/{jadwalTes}', [JadwalTesController::class, 'show'])
+    ->name('jadwal-tes.show');
 });
