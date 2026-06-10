@@ -31,7 +31,7 @@
                     <div class="col-md-9">: Lab. Bahasa GKB Lantai 2</div>
                 </div>
                 <div class="row mb-3">
-                    <div class="col-md-3 fw-bold">Kouta</div>
+                    <div class="col-md-3 fw-bold">Kuota</div>
                     <div class="col-md-9">: 24</div>
                 </div>
                 <div class="row mb-3">
