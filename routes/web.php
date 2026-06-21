@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\JadwalTesController;
+use App\Http\Controllers\PesertaController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -105,4 +106,10 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
 
     Route::get('/jadwal-tes/{jadwalTes}', [JadwalTesController::class, 'show'])
     ->name('jadwal-tes.show');
+
+    Route::get('/peserta', [PesertaController::class, 'index'])
+    ->name('peserta');
+
+    Route::get('/peserta/{id}', [PesertaController::class, 'show'])
+    ->name('peserta.show');
 });

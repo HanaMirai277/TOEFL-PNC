@@ -1,3 +1,7 @@
+untuk seeder baru
+---
+php artisan db:seed
+
 cara bikin database migration/model/controller
 ---
 > php artisan make:migration nama_migrateion
