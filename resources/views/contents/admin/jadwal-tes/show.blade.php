@@ -33,7 +33,7 @@
                 </div>
                 <div class="row mb-3">
                     <div class="col-md-3 fw-bold">Tanggal Tes</div>
-                    <div class="col-md-9">: {{$jadwalTes->tanggal_tes->format('d M Y')}}</div>
+                    <div class="col-md-9">: {{$jadwal_panjang($jadwalTes->tanggal_tes)}}</div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-md-3 fw-bold">Waktu</div>
