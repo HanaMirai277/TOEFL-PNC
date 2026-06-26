@@ -4,10 +4,17 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\JadwalTesController;
 use App\Http\Controllers\PesertaController;
+use App\Models\JadwalTes;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('contents.web.beranda');
+    $jadwalTes = JadwalTes::query()
+        ->orderBy('tanggal_tes', 'asc')
+        ->orderBy('waktu', 'asc')
+        ->limit(2)
+        ->get();
+
+    return view('contents.web.beranda', compact('jadwalTes'));
 });
 
 //Auth Routes
@@ -25,36 +32,30 @@ Route::get('/tentang', function () {
     return view('contents.web.tentang');
 })->name('tentang');
 
-Route::get('/jadwal', function () {
-    return view('contents.web.jadwal');
-})->name('jadwal');
+Route::get('/jadwal-tes', [JadwalTesController::class, 
+    'publicIndex'])->name('jadwal');
 
 Route::get('/hasiltes', function () {
     return view('contents.web.hasiltes');
 })->name('hasiltes');
 
 Route::get('/profil', function () {
-    // return view('contents.mahasiswa.profil.index');
     return view('contents.pendaftar.profil.index');
 })->name('profil');
 
 Route::get('/profil/edit', function () {
-    // return view('contents.mahasiswa.profil.edit');
     return view('contents.pendaftar.profil.edit');
 })->name('profil.edit');
 
 Route::get('/transaksi/riwayat', function () {
-    // return view('contents.mahasiswa.transaksi.riwayat');
     return view('contents.pendaftar.transaksi.riwayat');
 })->name('transaksi.riwayat');
 
 Route::get('/transaksi/detail', function () {
-    // return view('contents.mahasiswa.transaksi.detail');
     return view('contents.pendaftar.transaksi.detail');
 })->name('transaksi.detail');
 
 Route::get('/transaksi/kartu-tes', function () {
-    // return view('contents.mahasiswa.kartu-tes.show');
     return view('contents.pendaftar.kartu-tes.show');
 })->name('transaksi.kartu-tes');
 
@@ -73,7 +74,13 @@ Route::get('/pendaftaran/step3', function () {
 //Protected Routes (Dashboard)
 Route::middleware('auth')->group(function () {
     Route::get('/beranda', function () {
-        return view('contents.web.beranda');
+        $jadwalTes = JadwalTes::query()
+            ->orderBy('tanggal_tes', 'asc')
+            ->orderBy('waktu', 'asc')
+            ->limit(2)
+            ->get();
+
+        return view('contents.web.beranda', compact('jadwalTes'));
     })->name('beranda');
 });
 
