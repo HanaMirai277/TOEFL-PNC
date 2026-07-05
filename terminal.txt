@@ -18,5 +18,5 @@ untuk rollback / hapus migration terakhir
 
 daftarkan Helpers
 ---
-Muat Ulang Autoloader Composer: Jalankan perintah berikut di terminal atau Command Prompt untuk memperbarui konfigurasi agar Laravel mengenali helper tersebut:
+Muat Ulang Autoloader Composer: Jalankan perintah berikut di terminal untuk memperbarui konfigurasi agar Laravel mengenali helper tersebut
 > composer dump-autoload

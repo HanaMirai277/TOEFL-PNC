@@ -3,21 +3,35 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\JadwalTesController;
+use App\Http\Controllers\PendaftaranTesController;
 use App\Http\Controllers\PesertaController;
+use App\Http\Controllers\TransaksiPendaftarController;
 use App\Models\JadwalTes;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Schema;
+
+if (! function_exists('loadLatestJadwalTes')) {
+    function loadLatestJadwalTes(int $limit = 2)
+    {
+        if (! Schema::hasTable('jadwal_tes')) {
+            return collect();
+        }
+
+        return JadwalTes::query()
+            ->orderBy('tanggal_tes', 'asc')
+            ->orderBy('waktu', 'asc')
+            ->limit($limit)
+            ->get();
+    }
+}
 
 Route::get('/', function () {
-    $jadwalTes = JadwalTes::query()
-        ->orderBy('tanggal_tes', 'asc')
-        ->orderBy('waktu', 'asc')
-        ->limit(2)
-        ->get();
+    $jadwalTes = loadLatestJadwalTes();
 
     return view('contents.web.beranda', compact('jadwalTes'));
 });
 
-//Auth Routes
+// Auth Routes
 Route::middleware('guest')->group(function () {
     Route::get('/login', [LoginController::class, 'create'])->name('login');
     Route::post('/login', [LoginController::class, 'store'])->name('login.store');
@@ -32,7 +46,7 @@ Route::get('/tentang', function () {
     return view('contents.web.tentang');
 })->name('tentang');
 
-Route::get('/jadwal-tes', [JadwalTesController::class, 
+Route::get('/jadwal-tes', [JadwalTesController::class,
     'publicIndex'])->name('jadwal');
 
 Route::get('/hasiltes', function () {
@@ -47,38 +61,26 @@ Route::get('/profil/edit', function () {
     return view('contents.pendaftar.profil.edit');
 })->name('profil.edit');
 
-Route::get('/transaksi/riwayat', function () {
-    return view('contents.pendaftar.transaksi.riwayat');
-})->name('transaksi.riwayat');
+Route::prefix('/transaksi')->name('transaksi.')->group(function () {
+    Route::get('/riwayat', [TransaksiPendaftarController::class, 'riwayat'])->name('riwayat');
+    Route::get('/{pendaftaranTes}', [TransaksiPendaftarController::class, 'detail'])->name('detail');
+    Route::get('/{pendaftaranTes}/kartu-tes', [TransaksiPendaftarController::class, 'kartuTes'])->name('kartu-tes');
+});
 
-Route::get('/transaksi/detail', function () {
-    return view('contents.pendaftar.transaksi.detail');
-})->name('transaksi.detail');
+Route::prefix('/pendaftaran')->name('pendaftaran.')->group(function () {
+    Route::get('/mulai/{jadwalTes}', [PendaftaranTesController::class, 'mulai'])->name('mulai');
+    Route::get('/{pendaftaranTes}/step-1', [PendaftaranTesController::class, 'step1'])->name('step1');
+    Route::post('/{pendaftaranTes}/step-1', [PendaftaranTesController::class, 'simpanStep1'])->name('step1.store');
+    Route::get('/{pendaftaranTes}/step-2', [PendaftaranTesController::class, 'step2'])->name('step2');
+    Route::post('/{pendaftaranTes}/konfirmasi', [PendaftaranTesController::class, 'konfirmasi'])->name('konfirmasi');
+    Route::get('/{pendaftaranTes}/step-3', [PendaftaranTesController::class, 'step3'])->name('step3');
+    Route::post('/{pendaftaranTes}/bayar', [PendaftaranTesController::class, 'bayar'])->name('bayar');
+});
 
-Route::get('/transaksi/kartu-tes', function () {
-    return view('contents.pendaftar.kartu-tes.show');
-})->name('transaksi.kartu-tes');
-
-Route::get('/pendaftaran/step1', function () {
-    return view('contents.pendaftar.pendaftaran.step1-data-diri');
-})->name('pendaftaran.step1');
-
-Route::get('/pendaftaran/step2', function () {
-    return view('contents.pendaftar.pendaftaran.step2-konfirmasi');
-})->name('pendaftaran.step2');
-
-Route::get('/pendaftaran/step3', function () {
-    return view('contents.pendaftar.pendaftaran.step3-pembayaran');
-})->name('pendaftaran.step3');
-
-//Protected Routes (Dashboard)
+// Protected Routes (Dashboard)
 Route::middleware('auth')->group(function () {
     Route::get('/beranda', function () {
-        $jadwalTes = JadwalTes::query()
-            ->orderBy('tanggal_tes', 'asc')
-            ->orderBy('waktu', 'asc')
-            ->limit(2)
-            ->get();
+        $jadwalTes = loadLatestJadwalTes();
 
         return view('contents.web.beranda', compact('jadwalTes'));
     })->name('beranda');
@@ -94,32 +96,32 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
     })->name('dashboard');
 
     Route::get('/jadwal-tes', [JadwalTesController::class, 'index'])
-    ->name('jadwal-tes');
+        ->name('jadwal-tes');
 
     Route::get('/jadwal-tes/create', [JadwalTesController::class, 'create'])
-    ->name('jadwal-tes.create');
+        ->name('jadwal-tes.create');
 
     Route::post('/jadwal-tes', [JadwalTesController::class, 'store'])
-    ->name('jadwal-tes.store');
+        ->name('jadwal-tes.store');
 
     Route::get('/jadwal-tes/{jadwalTes}/edit', [JadwalTesController::class, 'edit'])
-    ->name('jadwal-tes.edit');
+        ->name('jadwal-tes.edit');
 
     Route::put('/jadwal-tes/{jadwalTes}', [JadwalTesController::class, 'update'])
-    ->name('jadwal-tes.update');
+        ->name('jadwal-tes.update');
 
     Route::delete('/jadwal-tes/{jadwalTes}', [JadwalTesController::class, 'destroy'])
-    ->name('jadwal-tes.destroy');
+        ->name('jadwal-tes.destroy');
 
     Route::get('/jadwal-tes/{jadwalTes}', [JadwalTesController::class, 'show'])
-    ->name('jadwal-tes.show');
+        ->name('jadwal-tes.show');
 
     Route::get('/peserta', [PesertaController::class, 'index'])
-    ->name('peserta');
+        ->name('peserta');
 
     Route::get('/peserta/{id}', [PesertaController::class, 'show'])
-    ->name('peserta.show');
+        ->name('peserta.show');
 
     Route::get('/peserta/{id}/score', [PesertaController::class, 'editScore'])
-    ->name('peserta.score');
+        ->name('peserta.score');
 });
