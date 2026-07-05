@@ -3,142 +3,145 @@
 @section('title', 'Dashboard')
 
 @section('content')
-<div class="row mb-2">
-    <div class="col-12">
-        <h5 class="fw-bold">Overview Data</h5>
+    <div class="row mb-2">
+        <div class="col-12">
+            <h5 class="fw-bold">Overview Data</h5>
+        </div>
     </div>
-</div>
 
-<div class="row mb-4">
-    <!-- Total Pendapatan -->
-    <div class="col-md-4">
-        <div class="card card-overview p-3">
-            <div class="d-flex align-items-center mb-2">
-                <div class="rounded-circle bg-light me-3 d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; border: 2px solid #337B5A;">
-                    <i class="fas fa-wallet" style="color: #337B5A"></i>
+    <div class="row mb-4">
+        <!-- Total Pendapatan -->
+        <div class="col-md-4">
+            <div class="card card-overview p-3">
+                <div class="d-flex align-items-center mb-2">
+                    <div class="rounded-circle bg-light me-3 d-flex align-items-center justify-content-center"
+                        style="width: 45px; height: 45px; border: 2px solid #337B5A;">
+                        <i class="fas fa-wallet" style="color: #337B5A"></i>
+                    </div>
+                    <div>
+                        <span class="card-title" style="color: #337B5A">TOTAL PENDAPATAN</span>
+                        <div class="card-value">Rp 1.200.000</div>
+                    </div>
                 </div>
-                <div>
-                    <span class="card-title" style="color: #337B5A">TOTAL PENDAPATAN</span>
-                    <div class="card-value">Rp 1.200.000</div>
+            </div>
+        </div>
+
+        <!-- Total Peserta -->
+        <div class="col-md-4">
+            <div class="card card-overview p-3">
+                <div class="d-flex align-items-center mb-2">
+                    <div class="rounded-circle bg-light me-3 d-flex align-items-center justify-content-center"
+                        style="width: 45px; height: 45px; border: 2px solid #FF981A">
+                        <i class="fas fa-users" style="color: #FF981A"></i>
+                    </div>
+                    <div>
+                        <span class="card-title" style="color: #FF981A">TOTAL PESERTA</span>
+                        <div class="card-value">12</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Jadwal Aktif -->
+        <div class="col-md-4">
+            <div class="card card-overview p-3">
+                <div class="d-flex align-items-center mb-2">
+                    <div class="rounded-circle bg-light me-3 d-flex align-items-center justify-content-center"
+                        style="width: 45px; height: 45px; border: 2px solid #5D16A6">
+                        <i class="fas fa-calendar-alt" style="color: #5D16A6"></i>
+                    </div>
+                    <div>
+                        <span class="card-title" style="color: #5D16A6">JADWAL AKTIF</span>
+                        <div class="card-value">4</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Total Peserta -->
-    <div class="col-md-4">
-        <div class="card card-overview p-3">
-            <div class="d-flex align-items-center mb-2">
-                <div class="rounded-circle bg-light me-3 d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; border: 2px solid #FF981A">
-                    <i class="fas fa-users" style="color: #FF981A"></i>
+    <div class="row mb-4">
+        <!-- Statistik Pendaftaran -->
+        <div class="col-12">
+            <div class="card card-chart">
+                <h5 class="fw-bold mb-4">Statistik Pendaftaran Peserta</h5>
+                <canvas id="registrationChart" style="max-height: 300px;"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <!-- Distribusi Tes -->
+        <div class="col-md-6">
+            <div class="card card-chart h-100">
+                <h5 class="fw-bold mb-4">Distribusi Tes</h5>
+                <div class="d-flex justify-content-center">
+                    <div style="width: 250px;">
+                        <canvas id="distributionChart"></canvas>
+                    </div>
                 </div>
-                <div>
-                    <span class="card-title" style="color: #FF981A">TOTAL PESERTA</span>
-                    <div class="card-value">12</div>
+            </div>
+        </div>
+
+        <!-- Status Peserta -->
+        <div class="col-md-6">
+            <div class="card card-chart h-100">
+                <h5 class="fw-bold mb-4">Status Peserta</h5>
+                <div class="d-flex justify-content-center">
+                    <div style="width: 250px;">
+                        <canvas id="statusChart"></canvas>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-
-    <!-- Jadwal Aktif -->
-    <div class="col-md-4">
-        <div class="card card-overview p-3">
-            <div class="d-flex align-items-center mb-2">
-                <div class="rounded-circle bg-light me-3 d-flex align-items-center justify-content-center" style="width: 45px; height: 45px; border: 2px solid #5D16A6">
-                    <i class="fas fa-calendar-alt" style="color: #5D16A6"></i>
-                </div>
-                <div>
-                    <span class="card-title" style="color: #5D16A6">JADWAL AKTIF</span>
-                    <div class="card-value">4</div>
-                </div>
+    <div class="row">
+        <div class="col-12">
+            <h5 class="fw-bold mb-3">Pendaftaran Peserta Terbaru</h5>
+            <div class="table-responsive">
+                <table class="table table-admin align-middle">
+                    <thead>
+                        <tr>
+                            <th class="py-3 px-4">No</th>
+                            <th class="py-3">Nomor Pendaftaran</th>
+                            <th class="py-3">Nama Peserta</th>
+                            <th class="py-3">Judul Tes</th>
+                            <th class="py-3">Jenis Tes</th>
+                            <th class="py-3">Tanggal Daftar</th>
+                            <th class="py-3">Total Biaya</th>
+                            <th class="py-3">Status Bayar</th>
+                            <th class="py-3 text-center">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white">
+                        @forelse ($pendaftaranTerbaru as $item)
+                            <tr>
+                                <td class="px-4">{{ $loop->iteration }}</td>
+                                <td>{{ $item->nomor_pendaftaran }}</td>
+                                <td>{{ $item->nama_peserta }}</td>
+                                <td>{{ $item->judul_tes }}</td>
+                                <td>{{ $item->jenis_tes }}</td>
+                                <td>{{ $item->tanggal_daftar }}</td>
+                                <td>Rp {{ number_format($item->total_biaya, 0, ',', '.') }}</td>
+                                <td><span class="badge-lunas small">{{ $item->status_bayar }}</span></td>
+                                <td class="text-center">
+                                    <a href="{{ route('admin.peserta.show', $item->id) }}" class="btn btn-detail">
+                                        DETAIL
+                                    </a>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="9" class="text-center py-4 text-muted">
+                                    Belum ada data pendaftaran peserta.
+                                </td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-</div>
-
-<div class="row mb-4">
-    <!-- Statistik Pendaftaran -->
-    <div class="col-12">
-        <div class="card card-chart">
-            <h5 class="fw-bold mb-4">Statistik Pendaftaran Peserta</h5>
-            <canvas id="registrationChart" style="max-height: 300px;"></canvas>
-        </div>
-    </div>
-</div>
-
-<div class="row mb-4">
-    <!-- Distribusi Tes -->
-    <div class="col-md-6">
-        <div class="card card-chart h-100">
-            <h5 class="fw-bold mb-4">Distribusi Tes</h5>
-            <div class="d-flex justify-content-center">
-                <div style="width: 250px;">
-                    <canvas id="distributionChart"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Status Peserta -->
-    <div class="col-md-6">
-        <div class="card card-chart h-100">
-            <h5 class="fw-bold mb-4">Status Peserta</h5>
-            <div class="d-flex justify-content-center">
-                <div style="width: 250px;">
-                    <canvas id="statusChart"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-12">
-        <h5 class="fw-bold mb-3">Pendaftaran Peserta Terbaru</h5>
-        <div class="table-responsive">
-            <table class="table table-admin align-middle">
-                <thead>
-                    <tr>
-                        <th class="py-3 px-4">No</th>
-                        <th class="py-3">Nomor Pendaftaran</th>
-                        <th class="py-3">Nama Peserta</th>
-                        <th class="py-3">Jenis Tes</th>
-                        <th class="py-3">Tanggal Daftar</th>
-                        <th class="py-3">Total Biaya</th>
-                        <th class="py-3">Status Bayar</th>
-                        <th class="py-3 text-center">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody class="bg-white">
-                    <tr>
-                        <td class="px-4">1</td>
-                        <td>TOEFL-101-260226-013</td>
-                        <td>Aika Eva Darlene</td>
-                        <td>TOEFL EPT-P</td>
-                        <td>26 Februari 2026</td>
-                        <td>Rp 100.000</td>
-                        <td><span class="badge-lunas small">LUNAS</span></td>
-                        <td class="text-center">
-                            <button class="btn btn-detail">DETAIL</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="px-4">2</td>
-                        <td>TOEFL-102-250701-020</td>
-                        <td>Aika Eva Darlene</td>
-                        <td>TOEFL ITP</td>
-                        <td>1 Juli 2025</td>
-                        <td>Rp 100.000</td>
-                        <td><span class="badge-lunas small">LUNAS</span></td>
-                        <td class="text-center">
-                            <button class="btn btn-detail">DETAIL</button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
 
 @endsection
