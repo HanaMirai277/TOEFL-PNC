@@ -20,3 +20,11 @@ daftarkan Helpers
 ---
 Muat Ulang Autoloader Composer: Jalankan perintah berikut di terminal untuk memperbarui konfigurasi agar Laravel mengenali helper tersebut
 > composer dump-autoload
+
+menginstal DomPDF
+---
+> composer require barryvdh/laravel-dompdf
+
+Melakukan storage:link
+---
+> php artisan storage:link

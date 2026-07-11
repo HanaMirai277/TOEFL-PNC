@@ -57,7 +57,7 @@
                     <div class="badge-container">
                             <div class="badge-info">
                                 <img src="{{asset('icons/time.png')}}" alt="Durasi">
-                                Durasi 115 menit.
+                                Durasi 115 menit
                             </div>
                             <div class="badge-info">
                                 <img src="{{asset('icons/paper.png')}}" alt="Paper Based">

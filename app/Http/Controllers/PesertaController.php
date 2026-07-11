@@ -91,7 +91,7 @@ class PesertaController extends Controller {
                 'structure'         => (int) $item->hasilTes->structure,
                 'reading'           => (int) $item->hasilTes->reading,
                 'total_skor'        => (int) $item->hasilTes->total_skor,
-                'status'            => (string) $item->hasilTes->status_kelulusan,
+                'status_kelulusan'            => (string) $item->hasilTes->status_kelulusan,
             ] : null,
         ];
 

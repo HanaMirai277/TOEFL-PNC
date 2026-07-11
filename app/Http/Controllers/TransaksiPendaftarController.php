@@ -20,7 +20,7 @@ class TransaksiPendaftarController extends Controller
             ->forHistory()
             ->get();
 
-        return view('contents.pendaftaran.transaksi.riwayat', compact('riwayatPendaftaran'));
+        return view('contents.pendaftar.transaksi.riwayat', compact('riwayatPendaftaran'));
     }
 
     public function detail(Request $request, PendaftaranTes $pendaftaranTes): View

@@ -204,5 +204,116 @@
             color: var(--color-primary);
             background-color: transparent;
         }
+
+        @media print {
+
+            /* Atur ukuran kertas penuh tanpa margin bawaan */
+            @page {
+                size: A4 portrait;
+                margin: 0mm;
+            }
+
+            /* Sembunyikan navigasi, tombol, dan footer web */
+            nav,
+            footer,
+            header,
+            .action-buttons-wrapper,
+            .btn-kembali,
+            .btn-unduh,
+            a,
+            button {
+                display: none !important;
+                visibility: hidden !important;
+            }
+
+            /* Hapus semua tepi/padding luar agar konten memenuhi kertas A4 */
+            html,
+            body,
+            .kartu-tes-section,
+            .container,
+            .container-fluid,
+            [class*="container"] {
+                background: #fff !important;
+                background-color: #fff !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                min-width: 100% !important;
+                height: 100vh !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            /* Padatkan ukuran kartu agar pas 1 halaman A4 */
+            .kartu-wrapper {
+                box-shadow: none !important;
+                border: none !important;
+                border-radius: 0px !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                height: 100vh !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: space-between !important;
+                page-break-inside: avoid;
+            }
+
+            .kartu-body .row {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                
+            }
+
+            /* Bagian Informasi Peserta (Kiri) memakan 75% lebar kertas */
+            .col-lg-9 {
+                width: 75% !important;
+                flex: 0 0 75% !important;
+                max-width: 75% !important;
+            }
+
+            /* Bagian Nomor Kursi (Kanan) memakan 25% lebar kertas */
+            .col-lg-3 {
+                width: 25% !important;
+                flex: 0 0 25% !important;
+                max-width: 25% !important;
+            }
+
+            .kartu-header {
+                padding: 40px 60px !important;
+            }
+
+            .kartu-body {
+                padding: 50px 60px !important;
+                flex-grow: 1 !important;
+            }
+
+            /* Membuat jarak renggang antar sub-bagian informasi (Informasi Peserta, Tes, Tata Tertib) */
+            .kartu-body h5,
+            .kartu-body .mb-4,
+            .kartu-body h6 {
+                margin-top: 24px !important;
+                margin-bottom: 32px !important;
+            }
+
+            /* Jarak antar baris teks data diperlebar sedikit agar lebih elegan */
+            .info-item,
+            .row.mb-2 {
+                margin-bottom: 12px !important;
+            }
+
+            /* 7. PAKSA FOOTER KARTU (GARIS ORANYE-UNGU) KE PALING BAWAH HALAMAN A4 */
+            .kartu-footer,
+            .kartu-wrapper>div:last-child,
+            .border-bottom-custom {
+                margin-top: auto !important;
+                width: 100% !important;
+                padding-bottom: 0 !important;
+                margin-bottom: 0 !important;
+            }
+        }
     </style>
 @endpush

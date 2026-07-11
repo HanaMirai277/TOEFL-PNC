@@ -53,7 +53,7 @@
                     </div>
                     <div>
                         <span class="card-title" style="color: #5D16A6">JADWAL AKTIF</span>
-                        <div class="card-value">4</div>
+                        <div class="card-value">{{ number_format($totalJadwalAktif, 0, ',', '.') }}</div>
                     </div>
                 </div>
             </div>

@@ -39,23 +39,23 @@
 
                     <div class="mb-4">
                         <label for="name" class="form-label">Nama</label>
-                        <input type="text" id="name" name="name" class="form-control-custom" placeholder="Aika Eva Darlene" value="{{old('name')}}">
+                        <input type="text" id="name" name="name" class="form-control-custom" placeholder="Masukkan nama Anda" value="{{old('name')}}">
                     </div>
                     <div class="mb-4">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" id="email" name="email" class="form-control-custom" placeholder="aikaeva_darlene.stu@pnc.ac.id" value="{{old('email')}}">
+                        <input type="email" id="email" name="email" class="form-control-custom" placeholder="Masukkan email Anda" value="{{old('email')}}">
                     </div>
                     <div class="mb-4">
                         <label for="password" class="form-label">Password</label>
                         <div class="password-wrapper">
-                            <input type="password" id="password" name="password" class="form-control-custom" placeholder="hai1234!">
+                            <input type="password" id="password" name="password" class="form-control-custom" placeholder="Masukkan password">
                             <i class="fas fa-eye-slash password-toggle" id="togglePassword"></i>
                         </div>
                     </div>
                     <div class="mb-4">
                         <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
                         <div class="password-wrapper">
-                            <input type="password" id="password_confirmation" name="password_confirmation" class="form-control-custom" placeholder="hai1234!">
+                            <input type="password" id="password_confirmation" name="password_confirmation" class="form-control-custom" placeholder="Masukkan password">
                             <i class="fas fa-eye-slash password-toggle" id="toggleConfirmPassword"></i>
                         </div>
                     </div>

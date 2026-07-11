@@ -151,4 +151,7 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
 
     Route::get('/peserta/{id}/score', [PesertaController::class, 'editScore'])
         ->name('peserta.score');
+
+    Route::post('/peserta/{id}/score', [PesertaController::class, 'storeScore'])
+        ->name('peserta.score.store');
 });

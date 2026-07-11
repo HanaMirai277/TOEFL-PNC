@@ -6,7 +6,7 @@
         <div class="contaiter">
             <div class="row g-4 justify-content-center">
                 @forelse ($jadwalTes as $item)
-                    <div class="col-lg-6 col-md-6">
+                    <div class="col-lg-5 col-md-5">
                         <div class="jadwal-card h-100">
                             <div class="jadwal-card-header">{{ $item->judul_tes }} - {{ $item->jenis_tes }}</div>
                             <div class="jadwal-card-body d-flex flex-column">

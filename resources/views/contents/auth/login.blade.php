@@ -37,7 +37,7 @@
 
                     <div class="mb-4">
                         <label for="email" class="form-label">Email</label>
-                        <input type="email" id="email" name="email" class="form-control-custom @error('email') is-invalid @enderror" placeholder="aikaeva_darlene.stu@pnc.ac.id" value="{{old('email')}}" required>
+                        <input type="email" id="email" name="email" class="form-control-custom @error('email') is-invalid @enderror" placeholder="Masukkan email Anda" value="{{old('email')}}" required>
                         @error('email')
                             <div class="invalid-feedback d-block">{{$message}}</div>
                         @enderror
@@ -46,7 +46,7 @@
                     <div class="mb-4">
                         <label for="password" class="form-label">Password</label>
                         <div class="password-wrapper">
-                            <input type="password" id="password" name="password" class="form-control-custom @error('password') is-invalid @enderror" placeholder="hai1234!" required>
+                            <input type="password" id="password" name="password" class="form-control-custom @error('password') is-invalid @enderror" placeholder="Masukkan password" required>
                             <i class="fas fa-eye-slash password-toggle" id="togglePassword"></i>
                         </div>
                         @error('password')

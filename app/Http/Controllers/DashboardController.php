@@ -121,7 +121,7 @@ class DashboardController extends Controller
         return [
             'labels' => ['TOEFL ITP', 'TOEFL EPT-P'],
             'data'   => [(int) ($counts['ITP'] ?? 0), (int) ($counts['EPT-P'] ?? 0)],
-            'colors' => ['#6D28D9', '#F59E0B'],
+            'colors' => ['#5D16A6', '#F59E0B'],
         ];
     }
 
@@ -148,7 +148,7 @@ class DashboardController extends Controller
                 (int) ($counts['alumni'] ?? 0),
                 (int) ($counts['umum'] ?? 0),
             ],
-            'colors' => ['#6D28D9', '#C4B5FD', '#F59E0B'],
+            'colors' => ['#5D16A6', '#C4B5FD', '#F59E0B'],
         ];
     }
 

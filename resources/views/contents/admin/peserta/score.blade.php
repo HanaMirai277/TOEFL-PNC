@@ -40,12 +40,8 @@
                     <label for="listening" class="form-label fw-bold mb-2" style="font-size: 1rem;">
                         Listening Comprehension
                     </label>
-                    <input type="number"
-                        class="form-control 
-                    @error('listening') is-invalid 
-                        @enderror"
-                        id="listening" name="listening" min="31" max="68"
-                        value="{{ old('listening', $peserta->hasil?->listening ?? '') }}"
+                    <input type="number" class="form-control @error('listening') is-invalid @enderror" id="listening"
+                        name="listening" min="31" max="68" value="{{ old('listening', $peserta->hasil?->listening ?? '') }}"
                         style="border-color: #6D28D9; border-radius: 12px; padding: 6px 12px;">
                     <small class="text-muted mt-2 d-block" style="font-size: 0.75rem;">Rentang skor: 31 - 68</small>
                     @error('listening')
@@ -57,12 +53,8 @@
                     <label for="structure" class="form-label fw-bold mb-2" style="font-size: 1rem;">
                         Structure and Written Expression
                     </label>
-                    <input type="number"
-                        class="form-control 
-                    @error('structure') is-invalid 
-                    @enderror"
-                        id="structure" name="structure" min="31" max="68"
-                        value="{{ old('structure', $peserta->hasil?->structure ?? '') }}"
+                    <input type="number" class="form-control @error('structure') is-invalid @enderror" id="structure"
+                        name="structure" min="31" max="68" value="{{ old('structure', $peserta->hasil?->structure ?? '') }}"
                         style="border-color: #6D28D9; border-radius: 12px; padding: 6px 12px;">
                     <small class="text-muted mt-2 d-block" style="font-size: 0.75rem;">Rentang skor: 31 - 68</small>
                     @error('structure')
@@ -74,12 +66,8 @@
                     <label for="reading" class="form-label fw-bold mb-2" style="font-size: 1rem;">
                         Reading Comprehension
                     </label>
-                    <input type="number"
-                        class="form-control 
-                    @error('reading') is-invalid 
-                    @enderror"
-                        id="reading" name="reading" min="31" max="68"
-                        value="{{ old('reading', $peserta->hasil?->reading ?? '') }}"
+                    <input type="number" class="form-control @error('reading') is-invalid @enderror" id="reading"
+                        name="reading" min="31" max="68" value="{{ old('reading', $peserta->hasil?->reading ?? '') }}"
                         style="border-color: #6D28D9; border-radius: 12px; padding: 6px 12px;">
                     <small class="text-muted mt-2 d-block" style="font-size: 0.75rem;">Rentang skor: 31 - 68</small>
                     @error('reading')
@@ -88,21 +76,18 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="total_skor" class="form-label fw-bold mb-2" style="font-size: 1rem;">
-                        Total Skor
-                    </label>
+                    <label for="total_skor" class="form-label fw-bold mb-2" style="font-size: 1rem;">Total Skor</label>
                     <input type="number" class="form-control bg-light" id="total_skor" name="total_skor"
                         value="{{ $peserta->hasil?->total_skor ?? '' }}" readonly
                         style="border-color: #6D28D9; border-radius: 12px; padding: 6px 12px;">
                 </div>
 
                 <div class="d-flex gap-2 justify-content-center mt-5">
-                    <a href="{{ route('admin.peserta') }}" class="btn btn-sm btn-outline-secondary px-4 py-2 fw-bold"
-                        style="border-radius: 25px; font-size: 1rem;">
-                        <i class="fas fa-arrow-left me-2"></i>
+                    <a href="{{ route('admin.peserta') }}" class="btn btn-outline-secondary py-2 px-4"
+                        style="border-radius: 30px; font-size: 1rem;">
                         Kembali ke Daftar
                     </a>
-
+                    
                     <button type="submit" class="btn text-white py-2 px-5 fw-bold"
                         style="background-color: #5D16A6; border-radius: 50px; font-size: 1rem;">
                         Simpan Data Skor
@@ -114,6 +99,7 @@
 
     <script>
         const inputs = ['listening', 'structure', 'reading'];
+
         inputs.forEach(id => {
             document.getElementById(id).addEventListener('input', function() {
                 const listening = parseInt(document.getElementById('listening').value) || 0;
@@ -129,7 +115,7 @@
             });
         });
 
-        // Trigger calculation saat page load jika nilai input sudah pre-filled
+        // Trigger calculation on page load if values are pre-filled
         document.addEventListener('DOMContentLoaded', function() {
             const listening = parseInt(document.getElementById('listening').value) || 0;
             const structure = parseInt(document.getElementById('structure').value) || 0;

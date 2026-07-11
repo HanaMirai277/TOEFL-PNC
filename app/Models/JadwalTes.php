@@ -32,7 +32,7 @@ class JadwalTes extends Model {
         return [
             'tanggal_tes' => 'date',
             'kuota'       => 'integer',
-            'harga'       => 'decimal:2'
+            'harga'       => 'decimal:2',
         ];
     }
     

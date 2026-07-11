@@ -50,7 +50,7 @@ class JadwalTesController extends Controller
 
     public function edit(JadwalTes $jadwalTes): View
     {
-        return view('contents.admin.jadwal-tes.edit', compact('jadwal-tes'));
+        return view('contents.admin.jadwal-tes.edit', compact('jadwalTes'));
     }
 
     public function store(Request $request): RedirectResponse
@@ -58,7 +58,7 @@ class JadwalTesController extends Controller
         $validated = $request->validate($this->rules(), $this->messages());
 
         try {
-            JadwalTes::created($validated);
+            JadwalTes::create($validated);
         } catch (Throwable) {
             return back()
                 ->withInput()
@@ -83,7 +83,7 @@ class JadwalTesController extends Controller
         }
 
         return redirect()
-            ->route('admin.jadwal-show', $jadwalTes->id)
+            ->route('admin.jadwal-tes.show', $jadwalTes->id)
             ->with('success', 'Data jadwal tes berhasil diperbarui.');
     }
 
