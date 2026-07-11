@@ -35,6 +35,8 @@ class PendaftaranTes extends Model
         'hold_expires_at',
         'dibayar_pada',
         'nomor_kursi',
+        'nomor_surat_pengambilan',
+        'nomor_surat_pengambilan_tahun',
         'nama_peserta',
         'email_peserta',
         'jenis_kelamin',
@@ -52,10 +54,12 @@ class PendaftaranTes extends Model
      */
     protected function casts(): array {
         return [
-            'current_step'      => 'integer',
-            'harga_tes'         => 'decimal:2',
-            'hold_expires_at'   => 'datetime',
-            'dibayar_pada'      => 'datetime',
+            'current_step'                  => 'integer',
+            'harga_tes'                     => 'decimal:2',
+            'hold_expires_at'               => 'datetime',
+            'dibayar_pada'                  => 'datetime',
+            'nomor_surat_pengambilan'       => 'integer',
+            'nomor_surat_pengambilan_tahun' => 'integer',
         ];
     }
 
