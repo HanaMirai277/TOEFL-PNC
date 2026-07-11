@@ -71,6 +71,11 @@ class PendaftaranTes extends Model
         return $this->hasOne(PembayaranPendaftaran::class);
     }
 
+    public function hasilTes(): HasOne
+    {
+        return $this->hasOne(HasilTes::class, 'pendaftaran_tes_id');
+    }
+
     public function isExpired(): bool {
         return $this->status === self::STATUS_MENUNGGU_PEMBAYARAN
             && $this->hold_expires_at !== null
